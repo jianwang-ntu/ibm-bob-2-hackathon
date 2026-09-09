@@ -6,16 +6,35 @@ on lablab.ai, by [Jian Wang](https://github.com/jianwang-ntu).
 
 ## Status: nothing is built yet
 
-The organiser has not published the challenge. As of **2026-09-05T21:32Z** the
-event page's Challenge section still reads:
+**Corrected 2026-09-09T23:35Z.** This file previously said *"The organiser has not
+published the challenge"* and quoted the event page's *"Challenge Details Coming
+Soon"* placeholder. That was true when it was written on 2026-09-05T21:32Z and
+**is no longer true.** The correction is recorded here rather than quietly
+overwritten.
 
-> Challenge Details Coming Soon — We're putting the finishing touches on the
-> second challenge for IBM Bob 2.0. Check back soon — full details, tracks, and
-> submission requirements will be published here before the hackathon begins.
+The challenge **is** published. As of **2026-09-09T23:05Z** the event page's
+Challenge section reads:
 
-The event's own published build window is **2026-09-25T19:00Z → 2026-09-27T15:00Z**.
-Project code will land here during that window, and not before — there is no
-brief to build against.
+> Build with purpose using IBM Bob 2.0 — create a solution that improves a
+> specific developer workflow, such as onboarding, debugging, code review,
+> testing, application maintenance, or release and deployment processes. […]
+> Leverage features like Agent mode, parallel tasks, subagents, and document
+> understanding to manage and improve multiple steps, not just assist with
+> coding. Clearly demonstrate impact […]
+
+**Nothing is built yet, and that has not changed.** Two things still gate the
+build, and neither is the brief:
+
+- **Access to IBM Bob 2.0.** The event page's Technology section still reads
+  *"Participants will receive access to IBM Bob 2.0 at the start of the
+  hackathon"* and *"Access details TBA"*. The entry must be built **with** Bob
+  2.0 — the event's Important Requirements ask for the code Bob assisted with
+  and for screenshots of Bob task session summaries — so it cannot honestly be
+  pre-built.
+- **The build window**, which is the event's own: **2026-09-25T19:00Z →
+  2026-09-27T15:00Z**.
+
+Project code will land here during that window, and not before.
 
 This repository contains exactly two files, and claims nothing beyond them:
 
