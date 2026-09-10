@@ -1,0 +1,158 @@
+{
+  "claims": [
+    {
+      "claim_id": "real_suite_verifies_pricing",
+      "verdict": "DISCRIMINATING",
+      "reason": "all 4 mutants turned the check red.",
+      "mutants_applied": 4,
+      "mutants_killed": 4,
+      "mutants_did_not_run": 0,
+      "survivors": [],
+      "static_findings": [
+        {
+          "pattern": "no_assertion",
+          "relative_path": "tests/test_pricing_real.py",
+          "lineno": 18,
+          "test_name": "test_rejects_an_impossible_percentage",
+          "detail": "test body contains no assertion of any kind"
+        },
+        {
+          "pattern": "presence_only",
+          "relative_path": "tests/test_pricing_vacuous.py",
+          "lineno": 14,
+          "test_name": "test_discount_returns_something",
+          "detail": "asserts only that a value is (not) None"
+        },
+        {
+          "pattern": "presence_only",
+          "relative_path": "tests/test_pricing_vacuous.py",
+          "lineno": 18,
+          "test_name": "test_discount_returns_an_int",
+          "detail": "asserts only `isinstance(...)`, which holds for a wrong value too"
+        },
+        {
+          "pattern": "self_comparison",
+          "relative_path": "tests/test_pricing_vacuous.py",
+          "lineno": 22,
+          "test_name": "test_discount_is_consistent",
+          "detail": "asserts `apply_discount(1000, 10) == apply_discount(1000, 10)`"
+        },
+        {
+          "pattern": "swallowed_assertion",
+          "relative_path": "tests/test_pricing_vacuous.py",
+          "lineno": 25,
+          "test_name": "test_discount_does_not_explode",
+          "detail": "an assertion sits inside try/except that swallows the failure"
+        }
+      ],
+      "baseline": {
+        "green": true,
+        "returncode": 0,
+        "collected": null,
+        "duration_s": 0.848,
+        "not_green_because": [],
+        "command": [
+          "python",
+          "-m",
+          "pytest",
+          "tests/test_pricing_real.py",
+          "-q"
+        ]
+      },
+      "kill_rate": 1.0
+    },
+    {
+      "claim_id": "vacuous_suite_verifies_pricing",
+      "verdict": "WEAK",
+      "reason": "1 of 4 mutants turned the check red, and 3 did not. The check is evidence, and it also accepts the wrong implementations listed below.",
+      "mutants_applied": 4,
+      "mutants_killed": 1,
+      "mutants_did_not_run": 0,
+      "survivors": [
+        {
+          "mutant": "swap_boolop@src/pricing.py:9",
+          "description": "swap `Or`",
+          "outcome": "survived",
+          "returncode": 0,
+          "collected": null,
+          "duration_s": 0.86
+        },
+        {
+          "mutant": "swap_arithmetic@src/pricing.py:11",
+          "description": "swap `FloorDiv`",
+          "outcome": "survived",
+          "returncode": 0,
+          "collected": null,
+          "duration_s": 0.87
+        },
+        {
+          "mutant": "swap_arithmetic@src/pricing.py:12",
+          "description": "swap `Sub`",
+          "outcome": "survived",
+          "returncode": 0,
+          "collected": null,
+          "duration_s": 0.87
+        }
+      ],
+      "static_findings": [
+        {
+          "pattern": "no_assertion",
+          "relative_path": "tests/test_pricing_real.py",
+          "lineno": 18,
+          "test_name": "test_rejects_an_impossible_percentage",
+          "detail": "test body contains no assertion of any kind"
+        },
+        {
+          "pattern": "presence_only",
+          "relative_path": "tests/test_pricing_vacuous.py",
+          "lineno": 14,
+          "test_name": "test_discount_returns_something",
+          "detail": "asserts only that a value is (not) None"
+        },
+        {
+          "pattern": "presence_only",
+          "relative_path": "tests/test_pricing_vacuous.py",
+          "lineno": 18,
+          "test_name": "test_discount_returns_an_int",
+          "detail": "asserts only `isinstance(...)`, which holds for a wrong value too"
+        },
+        {
+          "pattern": "self_comparison",
+          "relative_path": "tests/test_pricing_vacuous.py",
+          "lineno": 22,
+          "test_name": "test_discount_is_consistent",
+          "detail": "asserts `apply_discount(1000, 10) == apply_discount(1000, 10)`"
+        },
+        {
+          "pattern": "swallowed_assertion",
+          "relative_path": "tests/test_pricing_vacuous.py",
+          "lineno": 25,
+          "test_name": "test_discount_does_not_explode",
+          "detail": "an assertion sits inside try/except that swallows the failure"
+        }
+      ],
+      "baseline": {
+        "green": true,
+        "returncode": 0,
+        "collected": null,
+        "duration_s": 0.847,
+        "not_green_because": [],
+        "command": [
+          "python",
+          "-m",
+          "pytest",
+          "tests/test_pricing_vacuous.py",
+          "-q"
+        ]
+      },
+      "kill_rate": 0.25
+    }
+  ],
+  "summary": {
+    "total": 2,
+    "discriminating": 1,
+    "weak": 1,
+    "vacuous": 0,
+    "inconclusive": 0
+  }
+}

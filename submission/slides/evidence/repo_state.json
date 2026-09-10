@@ -1,0 +1,105 @@
+{
+ "schema": "repo_state/v1",
+ "repo_url": "https://github.com/jianwang-ntu/ibm-bob-2-hackathon",
+ "clone": "anonymous git clone, no credential presented",
+ "head": "2259a4e8316fd4a620780fa6d9ccb7d5b19f95cb",
+ "commits": [
+  {
+   "sha": "2259a4e8316fd4a620780fa6d9ccb7d5b19f95cb",
+   "author_name": "wj",
+   "author_email": "80809178+jianwang-ntu@users.noreply.github.com",
+   "date": "2026-09-10T21:38:54+08:00",
+   "subject": "Disclose authorship, and correct the codebase commit's author metadata"
+  },
+  {
+   "sha": "0676db4c0985331df601ca835ea26e2742130f35",
+   "author_name": "wj",
+   "author_email": "80809178+jianwang-ntu@users.noreply.github.com",
+   "date": "2026-09-10T21:21:42+08:00",
+   "subject": "vacuity-auditor 0.1.0: audit whether a verification check can ever go red"
+  },
+  {
+   "sha": "6fc4b00045af1faee9fa4738b7e38e2e03851651",
+   "author_name": "wj",
+   "author_email": "80809178+jianwang-ntu@users.noreply.github.com",
+   "date": "2026-09-10T07:22:22+08:00",
+   "subject": "README: correct the challenge status -- the organiser published the brief"
+  },
+  {
+   "sha": "9b89d654ccf65b787695a6176e223382c6a824f4",
+   "author_name": "wj",
+   "author_email": "80809178+jianwang-ntu@users.noreply.github.com",
+   "date": "2026-09-06T05:35:16+08:00",
+   "subject": "Add README stating exactly what is and is not in this repository"
+  },
+  {
+   "sha": "0fe6b8e37645e950d381a49bda52f2d19b9dc047",
+   "author_name": "wj",
+   "author_email": "80809178+jianwang-ntu@users.noreply.github.com",
+   "date": "2026-09-06T05:35:15+08:00",
+   "subject": "Add MIT LICENSE (lablab Terms of Use s16: submissions must be MIT-licensed)"
+  }
+ ],
+ "commit_count": 5,
+ "distinct_commit_authors": [
+  "80809178+jianwang-ntu@users.noreply.github.com"
+ ],
+ "tracked_files": 30,
+ "modules": [
+  "vacuity_auditor/__main__.py",
+  "vacuity_auditor/audit.py",
+  "vacuity_auditor/baseline.py",
+  "vacuity_auditor/claims.py",
+  "vacuity_auditor/cli.py",
+  "vacuity_auditor/mutants.py",
+  "vacuity_auditor/report.py",
+  "vacuity_auditor/runner.py",
+  "vacuity_auditor/static_scan.py",
+  "vacuity_auditor/verdicts.py"
+ ],
+ "module_count": 10,
+ "test_files": [
+  "tests/test_audit_end_to_end.py",
+  "tests/test_baseline.py",
+  "tests/test_claims_and_report.py",
+  "tests/test_mutants.py",
+  "tests/test_runner.py",
+  "tests/test_static_scan.py"
+ ],
+ "test_file_count": 6,
+ "tests_passed_in_clone": 64,
+ "tests_failed_in_clone": 0,
+ "pytest_returncode": 0,
+ "licence": "MIT",
+ "licence_sha256": "79449ea854968280a0c1a63d509b6e80c033c789275ea09704a8b774f581772c",
+ "readme_bytes": 9106,
+ "published_self_audit_summary": {
+  "total": 5,
+  "discriminating": 0,
+  "weak": 5,
+  "vacuous": 0,
+  "inconclusive": 0
+ },
+ "published_self_audit_kill_rates": {
+  "baseline_guard_reads_baseline": [
+   3,
+   8
+  ],
+  "static_scan_tests_read_static_scan": [
+   7,
+   10
+  ],
+  "runner_tests_read_the_isolation_code": [
+   7,
+   10
+  ],
+  "mutant_tests_read_the_operators": [
+   9,
+   10
+  ],
+  "report_tests_read_the_exit_codes": [
+   8,
+   10
+  ]
+ }
+}

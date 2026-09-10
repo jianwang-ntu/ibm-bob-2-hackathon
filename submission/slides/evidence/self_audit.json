@@ -1,0 +1,449 @@
+{
+  "claims": [
+    {
+      "claim_id": "baseline_guard_reads_baseline",
+      "verdict": "WEAK",
+      "reason": "3 of 8 mutants turned the check red, and 5 did not. The check is evidence, and it also accepts the wrong implementations listed below; 2 were discarded because the check never ran.",
+      "mutants_applied": 10,
+      "mutants_killed": 3,
+      "mutants_did_not_run": 2,
+      "survivors": [
+        {
+          "mutant": "perturb_number@vacuity_auditor/baseline.py:30",
+          "description": "3 -> 4",
+          "outcome": "survived",
+          "returncode": 0,
+          "collected": null,
+          "duration_s": 0.88
+        },
+        {
+          "mutant": "perturb_string@vacuity_auditor/baseline.py:30",
+          "description": "append a marker to a string literal",
+          "outcome": "survived",
+          "returncode": 0,
+          "collected": null,
+          "duration_s": 0.87
+        },
+        {
+          "mutant": "perturb_string@vacuity_auditor/baseline.py:31",
+          "description": "append a marker to a string literal",
+          "outcome": "survived",
+          "returncode": 0,
+          "collected": null,
+          "duration_s": 0.87
+        },
+        {
+          "mutant": "perturb_string@vacuity_auditor/baseline.py:32",
+          "description": "append a marker to a string literal",
+          "outcome": "survived",
+          "returncode": 0,
+          "collected": null,
+          "duration_s": 0.89
+        },
+        {
+          "mutant": "perturb_string@vacuity_auditor/baseline.py:36",
+          "description": "append a marker to a string literal",
+          "outcome": "survived",
+          "returncode": 0,
+          "collected": null,
+          "duration_s": 0.87
+        },
+        {
+          "mutant": "blank_return@vacuity_auditor/baseline.py:72",
+          "description": "return None instead of the computed value",
+          "outcome": "did_not_run",
+          "returncode": 1,
+          "collected": 7,
+          "duration_s": 0.92
+        },
+        {
+          "mutant": "perturb_number@vacuity_auditor/baseline.py:32",
+          "description": "5 -> 6",
+          "outcome": "did_not_run",
+          "returncode": 1,
+          "collected": 0,
+          "duration_s": 0.9
+        }
+      ],
+      "static_findings": [
+        {
+          "pattern": "presence_only",
+          "relative_path": "tests/test_baseline.py",
+          "lineno": 53,
+          "test_name": "test_collected_count_distinguishes_absent_from_zero",
+          "detail": "asserts only that a value is (not) None"
+        },
+        {
+          "pattern": "presence_only",
+          "relative_path": "tests/test_claims_and_report.py",
+          "lineno": 36,
+          "test_name": "test_loads_a_valid_spec",
+          "detail": "asserts only that a value is (not) None"
+        },
+        {
+          "pattern": "presence_only",
+          "relative_path": "tests/test_claims_and_report.py",
+          "lineno": 88,
+          "test_name": "test_kill_rate_is_none_when_nothing_was_evidential",
+          "detail": "asserts only that a value is (not) None"
+        },
+        {
+          "pattern": "no_assertion",
+          "relative_path": "tests/test_mutants.py",
+          "lineno": 33,
+          "test_name": "test_every_mutant_is_valid_python",
+          "detail": "test body contains no assertion of any kind"
+        },
+        {
+          "pattern": "presence_only",
+          "relative_path": "tests/test_mutants.py",
+          "lineno": 71,
+          "test_name": "test_region_limiting_excludes_other_functions",
+          "detail": "asserts only that a name is truthy"
+        }
+      ],
+      "baseline": {
+        "green": true,
+        "returncode": 0,
+        "collected": null,
+        "duration_s": 0.848,
+        "not_green_because": [],
+        "command": [
+          "python3",
+          "-m",
+          "pytest",
+          "tests/test_baseline.py",
+          "-q"
+        ]
+      },
+      "kill_rate": 0.375
+    },
+    {
+      "claim_id": "static_scan_tests_read_static_scan",
+      "verdict": "WEAK",
+      "reason": "7 of 10 mutants turned the check red, and 3 did not. The check is evidence, and it also accepts the wrong implementations listed below.",
+      "mutants_applied": 10,
+      "mutants_killed": 7,
+      "mutants_did_not_run": 0,
+      "survivors": [
+        {
+          "mutant": "blank_return@vacuity_auditor/static_scan.py:109",
+          "description": "return None instead of the computed value",
+          "outcome": "survived",
+          "returncode": 0,
+          "collected": null,
+          "duration_s": 0.94
+        },
+        {
+          "mutant": "perturb_string@vacuity_auditor/static_scan.py:26",
+          "description": "append a marker to a string literal",
+          "outcome": "survived",
+          "returncode": 0,
+          "collected": null,
+          "duration_s": 0.88
+        },
+        {
+          "mutant": "blank_return@vacuity_auditor/static_scan.py:38",
+          "description": "return None instead of the computed value",
+          "outcome": "survived",
+          "returncode": 0,
+          "collected": null,
+          "duration_s": 0.87
+        }
+      ],
+      "static_findings": [
+        {
+          "pattern": "presence_only",
+          "relative_path": "tests/test_baseline.py",
+          "lineno": 53,
+          "test_name": "test_collected_count_distinguishes_absent_from_zero",
+          "detail": "asserts only that a value is (not) None"
+        },
+        {
+          "pattern": "presence_only",
+          "relative_path": "tests/test_claims_and_report.py",
+          "lineno": 36,
+          "test_name": "test_loads_a_valid_spec",
+          "detail": "asserts only that a value is (not) None"
+        },
+        {
+          "pattern": "presence_only",
+          "relative_path": "tests/test_claims_and_report.py",
+          "lineno": 88,
+          "test_name": "test_kill_rate_is_none_when_nothing_was_evidential",
+          "detail": "asserts only that a value is (not) None"
+        },
+        {
+          "pattern": "no_assertion",
+          "relative_path": "tests/test_mutants.py",
+          "lineno": 33,
+          "test_name": "test_every_mutant_is_valid_python",
+          "detail": "test body contains no assertion of any kind"
+        },
+        {
+          "pattern": "presence_only",
+          "relative_path": "tests/test_mutants.py",
+          "lineno": 71,
+          "test_name": "test_region_limiting_excludes_other_functions",
+          "detail": "asserts only that a name is truthy"
+        }
+      ],
+      "baseline": {
+        "green": true,
+        "returncode": 0,
+        "collected": null,
+        "duration_s": 0.887,
+        "not_green_because": [],
+        "command": [
+          "python3",
+          "-m",
+          "pytest",
+          "tests/test_static_scan.py",
+          "-q"
+        ]
+      },
+      "kill_rate": 0.7
+    },
+    {
+      "claim_id": "runner_tests_read_the_isolation_code",
+      "verdict": "WEAK",
+      "reason": "7 of 10 mutants turned the check red, and 3 did not. The check is evidence, and it also accepts the wrong implementations listed below.",
+      "mutants_applied": 10,
+      "mutants_killed": 7,
+      "mutants_did_not_run": 0,
+      "survivors": [
+        {
+          "mutant": "perturb_string@vacuity_auditor/runner.py:27",
+          "description": "append a marker to a string literal",
+          "outcome": "survived",
+          "returncode": 0,
+          "collected": null,
+          "duration_s": 1.93
+        },
+        {
+          "mutant": "flip_bool@vacuity_auditor/runner.py:37",
+          "description": "False -> True",
+          "outcome": "survived",
+          "returncode": 0,
+          "collected": null,
+          "duration_s": 1.92
+        },
+        {
+          "mutant": "perturb_number@vacuity_auditor/runner.py:78",
+          "description": "900.0 -> 901.0",
+          "outcome": "survived",
+          "returncode": 0,
+          "collected": null,
+          "duration_s": 1.95
+        }
+      ],
+      "static_findings": [
+        {
+          "pattern": "presence_only",
+          "relative_path": "tests/test_baseline.py",
+          "lineno": 53,
+          "test_name": "test_collected_count_distinguishes_absent_from_zero",
+          "detail": "asserts only that a value is (not) None"
+        },
+        {
+          "pattern": "presence_only",
+          "relative_path": "tests/test_claims_and_report.py",
+          "lineno": 36,
+          "test_name": "test_loads_a_valid_spec",
+          "detail": "asserts only that a value is (not) None"
+        },
+        {
+          "pattern": "presence_only",
+          "relative_path": "tests/test_claims_and_report.py",
+          "lineno": 88,
+          "test_name": "test_kill_rate_is_none_when_nothing_was_evidential",
+          "detail": "asserts only that a value is (not) None"
+        },
+        {
+          "pattern": "no_assertion",
+          "relative_path": "tests/test_mutants.py",
+          "lineno": 33,
+          "test_name": "test_every_mutant_is_valid_python",
+          "detail": "test body contains no assertion of any kind"
+        },
+        {
+          "pattern": "presence_only",
+          "relative_path": "tests/test_mutants.py",
+          "lineno": 71,
+          "test_name": "test_region_limiting_excludes_other_functions",
+          "detail": "asserts only that a name is truthy"
+        }
+      ],
+      "baseline": {
+        "green": true,
+        "returncode": 0,
+        "collected": null,
+        "duration_s": 1.913,
+        "not_green_because": [],
+        "command": [
+          "python3",
+          "-m",
+          "pytest",
+          "tests/test_runner.py",
+          "-q"
+        ]
+      },
+      "kill_rate": 0.7
+    },
+    {
+      "claim_id": "mutant_tests_read_the_operators",
+      "verdict": "WEAK",
+      "reason": "9 of 10 mutants turned the check red, and 1 did not. The check is evidence, and it also accepts the wrong implementations listed below.",
+      "mutants_applied": 10,
+      "mutants_killed": 9,
+      "mutants_did_not_run": 0,
+      "survivors": [
+        {
+          "mutant": "blank_return@vacuity_auditor/mutants.py:80",
+          "description": "return None instead of the computed value",
+          "outcome": "survived",
+          "returncode": 0,
+          "collected": null,
+          "duration_s": 0.89
+        }
+      ],
+      "static_findings": [
+        {
+          "pattern": "presence_only",
+          "relative_path": "tests/test_baseline.py",
+          "lineno": 53,
+          "test_name": "test_collected_count_distinguishes_absent_from_zero",
+          "detail": "asserts only that a value is (not) None"
+        },
+        {
+          "pattern": "presence_only",
+          "relative_path": "tests/test_claims_and_report.py",
+          "lineno": 36,
+          "test_name": "test_loads_a_valid_spec",
+          "detail": "asserts only that a value is (not) None"
+        },
+        {
+          "pattern": "presence_only",
+          "relative_path": "tests/test_claims_and_report.py",
+          "lineno": 88,
+          "test_name": "test_kill_rate_is_none_when_nothing_was_evidential",
+          "detail": "asserts only that a value is (not) None"
+        },
+        {
+          "pattern": "no_assertion",
+          "relative_path": "tests/test_mutants.py",
+          "lineno": 33,
+          "test_name": "test_every_mutant_is_valid_python",
+          "detail": "test body contains no assertion of any kind"
+        },
+        {
+          "pattern": "presence_only",
+          "relative_path": "tests/test_mutants.py",
+          "lineno": 71,
+          "test_name": "test_region_limiting_excludes_other_functions",
+          "detail": "asserts only that a name is truthy"
+        }
+      ],
+      "baseline": {
+        "green": true,
+        "returncode": 0,
+        "collected": null,
+        "duration_s": 0.901,
+        "not_green_because": [],
+        "command": [
+          "python3",
+          "-m",
+          "pytest",
+          "tests/test_mutants.py",
+          "-q"
+        ]
+      },
+      "kill_rate": 0.9
+    },
+    {
+      "claim_id": "report_tests_read_the_exit_codes",
+      "verdict": "WEAK",
+      "reason": "8 of 10 mutants turned the check red, and 2 did not. The check is evidence, and it also accepts the wrong implementations listed below.",
+      "mutants_applied": 10,
+      "mutants_killed": 8,
+      "mutants_did_not_run": 0,
+      "survivors": [
+        {
+          "mutant": "perturb_string@vacuity_auditor/report.py:10",
+          "description": "append a marker to a string literal",
+          "outcome": "survived",
+          "returncode": 0,
+          "collected": null,
+          "duration_s": 0.91
+        },
+        {
+          "mutant": "perturb_string@vacuity_auditor/report.py:11",
+          "description": "append a marker to a string literal",
+          "outcome": "survived",
+          "returncode": 0,
+          "collected": null,
+          "duration_s": 0.89
+        }
+      ],
+      "static_findings": [
+        {
+          "pattern": "presence_only",
+          "relative_path": "tests/test_baseline.py",
+          "lineno": 53,
+          "test_name": "test_collected_count_distinguishes_absent_from_zero",
+          "detail": "asserts only that a value is (not) None"
+        },
+        {
+          "pattern": "presence_only",
+          "relative_path": "tests/test_claims_and_report.py",
+          "lineno": 36,
+          "test_name": "test_loads_a_valid_spec",
+          "detail": "asserts only that a value is (not) None"
+        },
+        {
+          "pattern": "presence_only",
+          "relative_path": "tests/test_claims_and_report.py",
+          "lineno": 88,
+          "test_name": "test_kill_rate_is_none_when_nothing_was_evidential",
+          "detail": "asserts only that a value is (not) None"
+        },
+        {
+          "pattern": "no_assertion",
+          "relative_path": "tests/test_mutants.py",
+          "lineno": 33,
+          "test_name": "test_every_mutant_is_valid_python",
+          "detail": "test body contains no assertion of any kind"
+        },
+        {
+          "pattern": "presence_only",
+          "relative_path": "tests/test_mutants.py",
+          "lineno": 71,
+          "test_name": "test_region_limiting_excludes_other_functions",
+          "detail": "asserts only that a name is truthy"
+        }
+      ],
+      "baseline": {
+        "green": true,
+        "returncode": 0,
+        "collected": null,
+        "duration_s": 0.86,
+        "not_green_because": [],
+        "command": [
+          "python3",
+          "-m",
+          "pytest",
+          "tests/test_claims_and_report.py",
+          "-q"
+        ]
+      },
+      "kill_rate": 0.8
+    }
+  ],
+  "summary": {
+    "total": 5,
+    "discriminating": 0,
+    "weak": 5,
+    "vacuous": 0,
+    "inconclusive": 0
+  }
+}

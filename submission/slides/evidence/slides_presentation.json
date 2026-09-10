@@ -1,0 +1,944 @@
+{
+ "schema": "slides_presentation/v1",
+ "pdf": "submission/slides/evidence/slides_presentation.pdf",
+ "sha256": "69cc0bfdb6c2f7fce4251070389cd6183aff39c07658abb7851b07957cf9206d",
+ "bytes": 67682,
+ "pages": 13,
+ "page_size_inches": [
+  13.333,
+  7.5
+ ],
+ "aspect_ratio": "16:9",
+ "requirement": "lablab Hackathon Rule Book, \"Cover Image and Presentation\": \"Video and Slide Presentation: MP4 and PDF formats are mandatory.\"",
+ "title": "Vacuity Auditor: can this check ever go red?",
+ "event": "IBM Bob 2.0 Hackathon | lablab.ai | 2026-09-25 to 2026-09-27",
+ "repo": "github.com/jianwang-ntu/ibm-bob-2-hackathon",
+ "built_by": "submission/slides/make_slides.py",
+ "built_from_head": "2259a4e8316fd4a620780fa6d9ccb7d5b19f95cb",
+ "source_date_epoch": "1757000000",
+ "deterministic": "SOURCE_DATE_EPOCH is pinned, so two builds from the same evidence produce byte-identical PDFs.",
+ "layout_violations": [],
+ "layout_check": "every string is measured with the real font metrics; off-page, text-on-text and text-straddling-a-panel all fail the build",
+ "figures_derived_from": [
+  "demo_audit_12.json",
+  "demo_audit_4.json",
+  "repo_state.json",
+  "self_audit.json"
+ ],
+ "claims": [
+  {
+   "label": "headline_self",
+   "text": "5 of 5 claims come back WEAK, 0 DISCRIMINATING."
+  },
+  {
+   "label": "worst_self",
+   "text": "The worst is baseline_guard_reads_baseline at 3 / 8."
+  },
+  {
+   "label": "demo_split",
+   "text": "8 / 9 against 2 / 9, and pytest calls both green."
+  },
+  {
+   "label": "budget_flip",
+   "text": "At a budget of 4 the same suite reports DISCRIMINATING 4 / 4; at 12 it reports WEAK 8 / 9."
+  },
+  {
+   "label": "repo_state",
+   "text": "30 tracked files, 10 modules, 6 test files, 64 tests passing in a clean anonymous clone at 2259a4e8."
+  },
+  {
+   "label": "sole_author",
+   "text": "5 commits, 1 commit author, MIT licensed."
+  },
+  {
+   "label": "demo_static_scan",
+   "text": "The static scan flags 5 vacuity candidates in the worked example before anything is executed."
+  },
+  {
+   "label": "self_static_scan",
+   "text": "In this repository's own tests it flags 5 candidates, of which 1 is a no_assertion true positive."
+  }
+ ],
+ "absences": [
+  {
+   "label": "no_bob",
+   "text": "IBM Bob 2.0 has not been used on this project. Access opens at kickoff and nothing here claims otherwise."
+  },
+  {
+   "label": "no_discriminating",
+   "text": "Nothing in this repository's own audit is DISCRIMINATING: 5 of 5 claims are WEAK."
+  },
+  {
+   "label": "no_oracle_sensitivity",
+   "text": "Oracle sensitivity - swapping a check's input for noise - is designed and not implemented. It is in no number here."
+  },
+  {
+   "label": "python_only",
+   "text": "Python only. The AST operators and the pytest exit-code semantics read no other language."
+  },
+  {
+   "label": "budget_caveat",
+   "text": "The verdict depends on the mutant budget and the tool does not warn you. Treat DISCRIMINATING at a low budget as no counterexample found yet."
+  },
+  {
+   "label": "no_revenue",
+   "text": "No revenue, no customers, no pricing validated. The business model here is a plan, not a result."
+  },
+  {
+   "label": "no_market_study",
+   "text": "No market study was conducted. The only demand evidence here is the base rate measured on this repository and its worked example."
+  },
+  {
+   "label": "no_demo_url",
+   "text": "No hosted demo URL and no video yet: both need accounts this entry does not hold."
+  }
+ ],
+ "text": [
+  {
+   "slide": 1,
+   "role": "title",
+   "text": "Vacuity Auditor"
+  },
+  {
+   "slide": 1,
+   "role": "subtitle",
+   "text": "Can this check ever go red?"
+  },
+  {
+   "slide": 1,
+   "role": "body",
+   "text": "A per-claim auditor for AI-assisted code review. It audits the check, not the code the check is pointed at, and answers in one of four words."
+  },
+  {
+   "slide": 1,
+   "role": "event",
+   "text": "IBM Bob 2.0 Hackathon | lablab.ai | 2026-09-25 to 2026-09-27"
+  },
+  {
+   "slide": 1,
+   "role": "entrant",
+   "text": "Solo entry - Wang Jian - github.com/jianwang-ntu/ibm-bob-2-hackathon"
+  },
+  {
+   "slide": 1,
+   "role": "kicker",
+   "text": "STATUS, STATED FIRST"
+  },
+  {
+   "slide": 1,
+   "role": "absence",
+   "text": "IBM Bob 2.0 has not been used on this project. Access opens at kickoff and nothing here claims otherwise."
+  },
+  {
+   "slide": 1,
+   "role": "body",
+   "text": "Every figure here is generated from evidence/*.json and re-checked against these PDF bytes."
+  },
+  {
+   "slide": 2,
+   "role": "kicker",
+   "text": "PROBLEM - THE DEVELOPER WORKFLOW THIS IMPROVES"
+  },
+  {
+   "slide": 2,
+   "role": "title",
+   "text": "A green tick that cannot go red is read as evidence"
+  },
+  {
+   "slide": 2,
+   "role": "bullet",
+   "text": "-  Code review of AI-assisted changes - one of the workflows the challenge brief names by hand, alongside onboarding, debugging and testing."
+  },
+  {
+   "slide": 2,
+   "role": "bullet",
+   "text": "-  When one agent writes a change AND the test that verifies it, the test very often cannot fail. assert result is not None passes for every implementation that returns an object."
+  },
+  {
+   "slide": 2,
+   "role": "bullet",
+   "text": "-  An assertion inside try: ... except: pass passes for all of them. A suite that collected zero tests exits green, and pytest exit 5 looks like success to a CI badge."
+  },
+  {
+   "slide": 2,
+   "role": "bullet",
+   "text": "-  A reviewer sees a green tick and approves. The tick meant nothing, and no tool on the shelf says so: they all answer did the suite pass?, not could it have failed?"
+  },
+  {
+   "slide": 2,
+   "role": "kicker",
+   "text": "MEASURED, NOT ASSERTED"
+  },
+  {
+   "slide": 2,
+   "role": "claim",
+   "text": "In this repository's worked example two green suites cover the same four-line function: 8 / 9 against 2 / 9, and pytest calls both green."
+  },
+  {
+   "slide": 3,
+   "role": "kicker",
+   "text": "THE GAP, MEASURED"
+  },
+  {
+   "slide": 3,
+   "role": "title",
+   "text": "Two green suites. One is evidence, one is decoration."
+  },
+  {
+   "slide": 3,
+   "role": "body",
+   "text": "examples/demo_project - one 4-line pricing function, two test files, both passing under pytest"
+  },
+  {
+   "slide": 3,
+   "role": "header",
+   "text": "CLAIM"
+  },
+  {
+   "slide": 3,
+   "role": "header",
+   "text": "VERDICT"
+  },
+  {
+   "slide": 3,
+   "role": "header",
+   "text": "KILLED"
+  },
+  {
+   "slide": 3,
+   "role": "header",
+   "text": "WHAT THAT MEANS"
+  },
+  {
+   "slide": 3,
+   "role": "cell",
+   "text": "real_suite_verifies_pricing"
+  },
+  {
+   "slide": 3,
+   "role": "cell",
+   "text": "WEAK"
+  },
+  {
+   "slide": 3,
+   "role": "cell",
+   "text": "8 / 9"
+  },
+  {
+   "slide": 3,
+   "role": "cell",
+   "text": "evidence, with named gaps"
+  },
+  {
+   "slide": 3,
+   "role": "cell",
+   "text": "vacuous_suite_verifies_pricing"
+  },
+  {
+   "slide": 3,
+   "role": "cell",
+   "text": "WEAK"
+  },
+  {
+   "slide": 3,
+   "role": "cell",
+   "text": "2 / 9"
+  },
+  {
+   "slide": 3,
+   "role": "cell",
+   "text": "green for almost any wrong code"
+  },
+  {
+   "slide": 3,
+   "role": "body",
+   "text": "Neither is clean, and that is the honest answer. The real suite never tests a 0% discount, so a mutant moving its guard survives it - a gap in a test its author believed complete. The split, and the named survivors, are the signal; a single pass/fail letter is not."
+  },
+  {
+   "slide": 3,
+   "role": "lead",
+   "text": "Survivors the vacuous suite accepts, verbatim from the report:"
+  },
+  {
+   "slide": 3,
+   "role": "survivor",
+   "text": "swap_arithmetic@src/pricing.py:11"
+  },
+  {
+   "slide": 3,
+   "role": "survivor",
+   "text": "swap_arithmetic@src/pricing.py:12"
+  },
+  {
+   "slide": 3,
+   "role": "survivor",
+   "text": "swap_boolop@src/pricing.py:9"
+  },
+  {
+   "slide": 3,
+   "role": "survivor",
+   "text": "perturb_number@src/pricing.py:11"
+  },
+  {
+   "slide": 4,
+   "role": "kicker",
+   "text": "SOLUTION - WHAT IT DOES"
+  },
+  {
+   "slide": 4,
+   "role": "title",
+   "text": "Four stages, and the order is load-bearing"
+  },
+  {
+   "slide": 4,
+   "role": "boxhead",
+   "text": "1  Green-baseline guard"
+  },
+  {
+   "slide": 4,
+   "role": "boxbody",
+   "text": "Before any mutation the unmutated tree must be green, and green is checked properly: pytest exits 5 on zero collected and 4 on a usage error. A campaign layered on either scores 100% for free."
+  },
+  {
+   "slide": 4,
+   "role": "boxhead",
+   "text": "2  Static vacuity scan"
+  },
+  {
+   "slide": 4,
+   "role": "boxbody",
+   "text": "AST patterns that make a check unable to go red - no_assertion, presence_only, self_comparison, swallowed_assertion and three more. These are candidates, never verdicts. They locate; stage 3 decides."
+  },
+  {
+   "slide": 4,
+   "role": "boxhead",
+   "text": "3  Mutation as a negative control"
+  },
+  {
+   "slide": 4,
+   "role": "boxbody",
+   "text": "Mutants are built by rewriting the AST and unparsing, so every one is valid Python. Docstrings and log strings are excluded: they change no behaviour and would brand correct checks VACUOUS."
+  },
+  {
+   "slide": 4,
+   "role": "boxhead",
+   "text": "4  Two guards on the result"
+  },
+  {
+   "slide": 4,
+   "role": "boxbody",
+   "text": "A mutant that stops the check RUNNING looks like a kill from outside; those runs leave both numerator and denominator. And each sandbox refuses to be an existing directory, which is where nested-copy 100%s come from."
+  },
+  {
+   "slide": 4,
+   "role": "body",
+   "text": "Stages 1 and 4 are the whole point. Every false 100% this tool has met came from a campaign that scored a suite which never ran, or from a copy that nested itself one directory deeper and left the check reading a stale tree."
+  },
+  {
+   "slide": 5,
+   "role": "kicker",
+   "text": "THE ANSWER IT GIVES"
+  },
+  {
+   "slide": 5,
+   "role": "title",
+   "text": "Four words, and three of them are not a pass"
+  },
+  {
+   "slide": 5,
+   "role": "verdict",
+   "text": "DISCRIMINATING"
+  },
+  {
+   "slide": 5,
+   "role": "exit",
+   "text": "exit 0"
+  },
+  {
+   "slide": 5,
+   "role": "verdictbody",
+   "text": "every behaviour-changing mutation of the claimed region turned the check red"
+  },
+  {
+   "slide": 5,
+   "role": "verdict",
+   "text": "WEAK"
+  },
+  {
+   "slide": 5,
+   "role": "exit",
+   "text": "exit 3"
+  },
+  {
+   "slide": 5,
+   "role": "verdictbody",
+   "text": "some did, and named survivors remain: the check accepts specific wrong implementations"
+  },
+  {
+   "slide": 5,
+   "role": "verdict",
+   "text": "VACUOUS"
+  },
+  {
+   "slide": 5,
+   "role": "exit",
+   "text": "exit 1"
+  },
+  {
+   "slide": 5,
+   "role": "verdictbody",
+   "text": "nothing did. Green from this check is not evidence for this claim"
+  },
+  {
+   "slide": 5,
+   "role": "verdict",
+   "text": "INCONCLUSIVE"
+  },
+  {
+   "slide": 5,
+   "role": "exit",
+   "text": "exit 2"
+  },
+  {
+   "slide": 5,
+   "role": "verdictbody",
+   "text": "the audit could not reach a conclusion. Never reported as a pass"
+  },
+  {
+   "slide": 5,
+   "role": "note",
+   "text": "Each band has its own exit code on purpose: not evidence, could not tell and evidence with gaps call for three different actions, and collapsing them into pass/fail is what makes a review tick meaningless in the first place."
+  },
+  {
+   "slide": 6,
+   "role": "kicker",
+   "text": "EVIDENCE - REPRODUCIBLE WITH ONE COMMAND"
+  },
+  {
+   "slide": 6,
+   "role": "title",
+   "text": "It audits itself, and the result is not flattering"
+  },
+  {
+   "slide": 6,
+   "role": "command",
+   "text": "vacuity-audit audit --root . --spec vacuity.toml   (--max-mutants 10)"
+  },
+  {
+   "slide": 6,
+   "role": "header",
+   "text": "CLAIM"
+  },
+  {
+   "slide": 6,
+   "role": "header",
+   "text": "VERDICT"
+  },
+  {
+   "slide": 6,
+   "role": "header",
+   "text": "KILLED / EVIDENTIAL"
+  },
+  {
+   "slide": 6,
+   "role": "cell",
+   "text": "baseline_guard_reads_baseline"
+  },
+  {
+   "slide": 6,
+   "role": "cell",
+   "text": "WEAK"
+  },
+  {
+   "slide": 6,
+   "role": "cell",
+   "text": "3 / 8"
+  },
+  {
+   "slide": 6,
+   "role": "cell",
+   "text": "static_scan_tests_read_static_scan"
+  },
+  {
+   "slide": 6,
+   "role": "cell",
+   "text": "WEAK"
+  },
+  {
+   "slide": 6,
+   "role": "cell",
+   "text": "7 / 10"
+  },
+  {
+   "slide": 6,
+   "role": "cell",
+   "text": "runner_tests_read_the_isolation_code"
+  },
+  {
+   "slide": 6,
+   "role": "cell",
+   "text": "WEAK"
+  },
+  {
+   "slide": 6,
+   "role": "cell",
+   "text": "7 / 10"
+  },
+  {
+   "slide": 6,
+   "role": "cell",
+   "text": "mutant_tests_read_the_operators"
+  },
+  {
+   "slide": 6,
+   "role": "cell",
+   "text": "WEAK"
+  },
+  {
+   "slide": 6,
+   "role": "cell",
+   "text": "9 / 10"
+  },
+  {
+   "slide": 6,
+   "role": "cell",
+   "text": "report_tests_read_the_exit_codes"
+  },
+  {
+   "slide": 6,
+   "role": "cell",
+   "text": "WEAK"
+  },
+  {
+   "slide": 6,
+   "role": "cell",
+   "text": "8 / 10"
+  },
+  {
+   "slide": 6,
+   "role": "claim",
+   "text": "5 of 5 claims come back WEAK, 0 DISCRIMINATING. The worst is baseline_guard_reads_baseline at 3 / 8. Its tests match reason strings by substring, so appending to one does not turn them red - a gap the tool found in its own suite."
+  },
+  {
+   "slide": 6,
+   "role": "claim",
+   "text": "In this repository's own tests it flags 5 candidates, of which 1 is a no_assertion true positive."
+  },
+  {
+   "slide": 6,
+   "role": "body",
+   "text": "Nothing here is DISCRIMINATING. That is a real finding about this repository's own tests, the survivors are published in evidence/self_audit.json, and it is stated rather than hidden."
+  },
+  {
+   "slide": 7,
+   "role": "kicker",
+   "text": "THE CAVEAT A DEMO USUALLY HIDES"
+  },
+  {
+   "slide": 7,
+   "role": "title",
+   "text": "The number moves with the budget, and we say so"
+  },
+  {
+   "slide": 7,
+   "role": "claim",
+   "text": "At a budget of 4 the same suite reports DISCRIMINATING 4 / 4; at 12 it reports WEAK 8 / 9."
+  },
+  {
+   "slide": 7,
+   "role": "body",
+   "text": "Same suite, same module, same tool. --max-mutants caps the pool and the cap is taken in generation order, not by sampling."
+  },
+  {
+   "slide": 7,
+   "role": "bullet",
+   "text": "-  A small budget can turn a real gap into a clean bill of health. DISCRIMINATING at a low budget means no counterexample found yet, not none exists."
+  },
+  {
+   "slide": 7,
+   "role": "bullet",
+   "text": "-  This is on the slide, in the README and in the tool's own limitations list. It is the single most misleading thing the tool can output and it is not implemented away."
+  },
+  {
+   "slide": 7,
+   "role": "bullet",
+   "text": "-  Fixing it properly - warning when the cap binds, and sampling instead of truncating - is named on the roadmap and is not built."
+  },
+  {
+   "slide": 8,
+   "role": "kicker",
+   "text": "COMPETITIVE ANALYSIS"
+  },
+  {
+   "slide": 8,
+   "role": "title",
+   "text": "Prior art is older; the question is different."
+  },
+  {
+   "slide": 8,
+   "role": "kicker",
+   "text": "MUTATION TESTING TODAY"
+  },
+  {
+   "slide": 8,
+   "role": "bullet",
+   "text": "-  mutmut, cosmic-ray and Pitest all do the mutation itself better than this does."
+  },
+  {
+   "slide": 8,
+   "role": "bullet",
+   "text": "-  They score a SUITE: one quality number over a whole test tree."
+  },
+  {
+   "slide": 8,
+   "role": "bullet",
+   "text": "-  None pairs a single check with the module it claims to verify."
+  },
+  {
+   "slide": 8,
+   "role": "kicker",
+   "text": "WHAT THIS ADDS"
+  },
+  {
+   "slide": 8,
+   "role": "bullet",
+   "text": "-  A PER-CLAIM question: does this check read this module?"
+  },
+  {
+   "slide": 8,
+   "role": "bullet",
+   "text": "-  A green-baseline guard, so a suite that never ran cannot score."
+  },
+  {
+   "slide": 8,
+   "role": "bullet",
+   "text": "-  The did-not-run exclusion and the sandbox-nesting refusal - where false 100%s actually come from."
+  },
+  {
+   "slide": 8,
+   "role": "body",
+   "text": "Stated against ourselves: on raw mutation quality the incumbents win, and a team that only wants a suite-level score should use them. The claim here is narrower - a per-claim verdict with named survivors is what an AI-assisted review needs, and the guards above are what keep the number honest."
+  },
+  {
+   "slide": 8,
+   "role": "body",
+   "text": "Also unlike them, this tool publishes its own audit and comes back WEAK on every claim rather than shipping a green badge."
+  },
+  {
+   "slide": 9,
+   "role": "kicker",
+   "text": "BUSINESS VALUE"
+  },
+  {
+   "slide": 9,
+   "role": "title",
+   "text": "Who it is for, and what it changes"
+  },
+  {
+   "slide": 9,
+   "role": "bullet",
+   "text": "-  The user is a reviewer or a tech lead merging AI-written changes, where the volume of generated tests is what makes reading them all impossible."
+  },
+  {
+   "slide": 9,
+   "role": "bullet",
+   "text": "-  The change is at the merge gate: a check labelled VACUOUS stops being read as evidence, and attention goes where the suite is provably blind."
+  },
+  {
+   "slide": 9,
+   "role": "bullet",
+   "text": "-  The cost avoided is a defect shipped behind a green tick. This entry puts no currency figure on that, because it has measured none."
+  },
+  {
+   "slide": 9,
+   "role": "kicker",
+   "text": "DEMAND EVIDENCE, AND ITS SAMPLE SIZE"
+  },
+  {
+   "slide": 9,
+   "role": "claim",
+   "text": "The static scan flags 5 vacuity candidates in the worked example before anything is executed."
+  },
+  {
+   "slide": 9,
+   "role": "claim",
+   "text": "5 of 5 claims come back WEAK, 0 DISCRIMINATING."
+  },
+  {
+   "slide": 9,
+   "role": "body",
+   "text": "One repository and one worked example: far too small to generalise from."
+  },
+  {
+   "slide": 9,
+   "role": "absence",
+   "text": "No market study was conducted. The only demand evidence here is the base rate measured on this repository and its worked example."
+  },
+  {
+   "slide": 10,
+   "role": "kicker",
+   "text": "MARKET AND REVENUE"
+  },
+  {
+   "slide": 10,
+   "role": "title",
+   "text": "The business model, labelled as a plan"
+  },
+  {
+   "slide": 10,
+   "role": "kicker",
+   "text": "WHO WOULD PAY, AND FOR WHAT"
+  },
+  {
+   "slide": 10,
+   "role": "bullet",
+   "text": "-  Open-source core under MIT - the auditor itself, free."
+  },
+  {
+   "slide": 10,
+   "role": "bullet",
+   "text": "-  The paid surface would be a CI service: hosted runs, budget management, and drift alerts on a claim's verdict."
+  },
+  {
+   "slide": 10,
+   "role": "bullet",
+   "text": "-  The buyer is an engineering org with a merge gate."
+  },
+  {
+   "slide": 10,
+   "role": "kicker",
+   "text": "WHAT WOULD VALIDATE IT"
+  },
+  {
+   "slide": 10,
+   "role": "bullet",
+   "text": "-  Audit N public repositories and publish the base rate of VACUOUS claims. None of that is done."
+  },
+  {
+   "slide": 10,
+   "role": "bullet",
+   "text": "-  Then price against the review hours it redirects."
+  },
+  {
+   "slide": 10,
+   "role": "bullet",
+   "text": "-  Until both exist, any figure would be invented."
+  },
+  {
+   "slide": 10,
+   "role": "absence",
+   "text": "No revenue, no customers, no pricing validated. The business model here is a plan, not a result."
+  },
+  {
+   "slide": 10,
+   "role": "body",
+   "text": "A deck that answers the market question with a large number it did not measure scores well and is not true. Nobody here has measured the review hours redirected either. This one answers with the model, the buyer and the two experiments that would test it, and leaves the number blank until they are run."
+  },
+  {
+   "slide": 11,
+   "role": "kicker",
+   "text": "FUTURE GOALS AND PLANS"
+  },
+  {
+   "slide": 11,
+   "role": "title",
+   "text": "What comes next, and what Bob 2.0 is for"
+  },
+  {
+   "slide": 11,
+   "role": "kicker",
+   "text": "ROADMAP, IN PRIORITY ORDER"
+  },
+  {
+   "slide": 11,
+   "role": "bullet",
+   "text": "-  Oracle sensitivity: swap a check's INPUT for noise and see whether the verdict moves at all."
+  },
+  {
+   "slide": 11,
+   "role": "bullet",
+   "text": "-  Warn when --max-mutants binds, and sample instead of truncating."
+  },
+  {
+   "slide": 11,
+   "role": "bullet",
+   "text": "-  Diff-scoping and an incremental mode, so a merge gate can run it."
+  },
+  {
+   "slide": 11,
+   "role": "bullet",
+   "text": "-  Languages beyond Python, which needs new AST operators per language."
+  },
+  {
+   "slide": 11,
+   "role": "kicker",
+   "text": "THE 44-HOUR WINDOW, WITH BOB 2.0"
+  },
+  {
+   "slide": 11,
+   "role": "bullet",
+   "text": "-  Bob 2.0 access opens at kickoff; nothing in this repository has used it and nothing here claims it has."
+  },
+  {
+   "slide": 11,
+   "role": "bullet",
+   "text": "-  The planned use is Agent mode and subagents on the roadmap items opposite, with every Bob-assisted file disclosed as the rules require."
+  },
+  {
+   "slide": 11,
+   "role": "bullet",
+   "text": "-  The auditor will then be pointed at Bob's own output, which is the sharpest test of the idea available."
+  },
+  {
+   "slide": 11,
+   "role": "absence",
+   "text": "Oracle sensitivity - swapping a check's input for noise - is designed and not implemented. It is in no number here."
+  },
+  {
+   "slide": 11,
+   "role": "absence",
+   "text": "Python only. The AST operators and the pytest exit-code semantics read no other language."
+  },
+  {
+   "slide": 12,
+   "role": "kicker",
+   "text": "THE LEDGER, ON THE SLIDE"
+  },
+  {
+   "slide": 12,
+   "role": "title",
+   "text": "What is not built"
+  },
+  {
+   "slide": 12,
+   "role": "absence",
+   "text": "-  IBM Bob 2.0 has not been used on this project. Access opens at kickoff and nothing here claims otherwise."
+  },
+  {
+   "slide": 12,
+   "role": "absence",
+   "text": "-  Nothing in this repository's own audit is DISCRIMINATING: 5 of 5 claims are WEAK."
+  },
+  {
+   "slide": 12,
+   "role": "absence",
+   "text": "-  Oracle sensitivity - swapping a check's input for noise - is designed and not implemented. It is in no number here."
+  },
+  {
+   "slide": 12,
+   "role": "absence",
+   "text": "-  Python only. The AST operators and the pytest exit-code semantics read no other language."
+  },
+  {
+   "slide": 12,
+   "role": "absence",
+   "text": "-  The verdict depends on the mutant budget and the tool does not warn you. Treat DISCRIMINATING at a low budget as no counterexample found yet."
+  },
+  {
+   "slide": 12,
+   "role": "absence",
+   "text": "-  No revenue, no customers, no pricing validated. The business model here is a plan, not a result."
+  },
+  {
+   "slide": 12,
+   "role": "absence",
+   "text": "-  No market study was conducted. The only demand evidence here is the base rate measured on this repository and its worked example."
+  },
+  {
+   "slide": 12,
+   "role": "absence",
+   "text": "-  No hosted demo URL and no video yet: both need accounts this entry does not hold."
+  },
+  {
+   "slide": 12,
+   "role": "body",
+   "text": "An honest smaller tool beats an inflated description of a larger one, and a project whose subject is unfalsifiable claims does not get to make any."
+  },
+  {
+   "slide": 13,
+   "role": "kicker",
+   "text": "TRY IT"
+  },
+  {
+   "slide": 13,
+   "role": "title",
+   "text": "Reproduce every number on these slides"
+  },
+  {
+   "slide": 13,
+   "role": "command",
+   "text": "git clone https://github.com/jianwang-ntu/ibm-bob-2-hackathon"
+  },
+  {
+   "slide": 13,
+   "role": "command",
+   "text": "cd ibm-bob-2-hackathon && pip install -e ."
+  },
+  {
+   "slide": 13,
+   "role": "command",
+   "text": "vacuity-audit audit --root . --spec vacuity.toml"
+  },
+  {
+   "slide": 13,
+   "role": "command",
+   "text": "vacuity-audit audit --root examples/demo_project --spec vacuity.toml"
+  },
+  {
+   "slide": 13,
+   "role": "kicker",
+   "text": "THE REPOSITORY, MEASURED FROM OUTSIDE"
+  },
+  {
+   "slide": 13,
+   "role": "claim",
+   "text": "30 tracked files, 10 modules, 6 test files, 64 tests passing in a clean anonymous clone at 2259a4e8."
+  },
+  {
+   "slide": 13,
+   "role": "claim",
+   "text": "5 commits, 1 commit author, MIT licensed."
+  },
+  {
+   "slide": 13,
+   "role": "body",
+   "text": "Counted in a fresh anonymous clone by collect_repo_state.py, not read off the README."
+  },
+  {
+   "slide": 13,
+   "role": "entrant",
+   "text": "Wang Jian - solo entry - IBM Bob 2.0 Hackathon | lablab.ai | 2026-09-25 to 2026-09-27"
+  }
+ ],
+ "facts": {
+  "self_total": 5,
+  "self_weak": 5,
+  "self_discriminating": 0,
+  "self_vacuous": 0,
+  "self_static_candidates": 5,
+  "self_no_assertion": 1,
+  "worst_claim": "baseline_guard_reads_baseline",
+  "worst_killed": 3,
+  "worst_evidential": 8,
+  "real12_verdict": "WEAK",
+  "real12_killed": 8,
+  "real12_n": 9,
+  "vac12_verdict": "WEAK",
+  "vac12_killed": 2,
+  "vac12_n": 9,
+  "real4_verdict": "DISCRIMINATING",
+  "real4_killed": 4,
+  "real4_n": 4,
+  "demo_static": 5,
+  "head": "2259a4e8316fd4a620780fa6d9ccb7d5b19f95cb",
+  "head8": "2259a4e8",
+  "tracked": 30,
+  "modules": 10,
+  "test_files": 6,
+  "tests_passed": 64,
+  "commits": 5,
+  "authors": 1,
+  "licence": "MIT"
+ },
+ "not_claimed": "The deck states that IBM Bob 2.0 has not been used, that 5 of 5 of the project's own claims are WEAK and none is DISCRIMINATING, that oracle sensitivity is unimplemented, that the tool is Python-only, that the verdict moves with the mutant budget, that there is no revenue, no customer and no market study, and that no hosted demo URL or video exists. It claims no measured market size and no measured saving."
+}

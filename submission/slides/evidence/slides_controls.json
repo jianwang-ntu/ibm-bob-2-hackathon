@@ -1,0 +1,80 @@
+{
+ "schema": "slides_controls/v1",
+ "artifact": "submission/slides/evidence/slides_presentation.pdf",
+ "sha256": "69cc0bfdb6c2f7fce4251070389cd6183aff39c07658abb7851b07957cf9206d",
+ "figures_checked": 13,
+ "absences_checked": 8,
+ "all_pass": true,
+ "controls": [
+  {
+   "control": "accept_every_figure_is_in_the_pdf",
+   "pass": true,
+   "detail": "13 / 13 figures found in the shipped bytes"
+  },
+  {
+   "control": "reject_a_noop_corruption",
+   "pass": true,
+   "detail": "every corruption changes its claim"
+  },
+  {
+   "control": "reject_a_corrupted_figure",
+   "pass": true,
+   "detail": "13 corrupted figures, 13 correctly absent"
+  },
+  {
+   "control": "reject_the_pdf_when_the_evidence_moves",
+   "pass": true,
+   "detail": "one extra kill and one extra passing test in the evidence make 3 figure(s) stop matching: ['worst_self', 'repo_state', 'self_row_baseline_guard_reads_baseline']"
+  },
+  {
+   "control": "accept_every_absence_is_stated",
+   "pass": true,
+   "detail": "8 / 8 absences stated on the slides"
+  },
+  {
+   "control": "reject_an_inflated_verdict_count",
+   "pass": true,
+   "detail": "none of 10 inflated verdict strings appears"
+  },
+  {
+   "control": "reject_a_deck_with_the_absences_deleted",
+   "pass": true,
+   "detail": "with the ledger removed all 8 absence controls report missing"
+  },
+  {
+   "control": "accept_sidecar_matches_the_file",
+   "pass": true,
+   "detail": "sha256 69cc0bfdb6c2f7fc == sidecar 69cc0bfdb6c2f7fc"
+  },
+  {
+   "control": "reject_a_sidecar_sha_that_does_not_match",
+   "pass": true,
+   "detail": "a one-character change to the recorded sha256 stops matching"
+  },
+  {
+   "control": "accept_pages_and_aspect_ratio",
+   "pass": true,
+   "detail": "13 pages (sidecar says 13), 960x540 pt, ratio 1.7777"
+  },
+  {
+   "control": "accept_pdf_is_the_format_the_rules_name",
+   "pass": true,
+   "detail": "the Rule Book requires PDF; the file starts with the PDF magic"
+  },
+  {
+   "control": "accept_shipped_bytes_are_the_builder_output_today",
+   "pass": true,
+   "detail": "a fresh build from today's evidence is byte-identical"
+  },
+  {
+   "control": "accept_layout_check_is_clean",
+   "pass": true,
+   "detail": "0 layout violations on the rebuild"
+  },
+  {
+   "control": "reject_a_title_that_would_collide_with_the_rule",
+   "pass": true,
+   "detail": "the title-wrap detector fires on an overlong title and stays quiet on the deck's own shortest title ('Vacuity Auditor')"
+  }
+ ]
+}
