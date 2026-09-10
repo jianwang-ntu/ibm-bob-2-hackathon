@@ -1,0 +1,325 @@
+{
+ "schema": "cover_image/v1",
+ "png": "submission/cover/evidence/cover_image.png",
+ "sha256": "19d68f662bc852398de98b84686f920392a1b128b2f42dd050fa84a305cdfa19",
+ "bytes": 248623,
+ "width_px": 1920,
+ "height_px": 1080,
+ "aspect_ratio": "16:9",
+ "aspect_ratio_exact": true,
+ "dpi": 100,
+ "requirement": "lablab Hackathon Rule Book, \"Cover Image and Presentation\": \"Cover Image: Use PNG or JPG format with 16:9 aspect ratio.\"",
+ "cross_surface_note": "The Submission Guidelines say \"recommended 16:9 ratio\" where the Rule Book says use it. Built 16:9, the reading against us.",
+ "title": "Vacuity Auditor: can this check ever go red?",
+ "event": "IBM Bob 2.0 Hackathon | lablab.ai | 2026-09-25 to 2026-09-27",
+ "repo": "github.com/jianwang-ntu/ibm-bob-2-hackathon",
+ "built_by": "submission/cover/make_cover.py",
+ "built_from_head": "2259a4e8316fd4a620780fa6d9ccb7d5b19f95cb",
+ "source_date_epoch": "1757000000",
+ "deterministic": "SOURCE_DATE_EPOCH is pinned, so two builds from the same evidence produce byte-identical PNGs.",
+ "figures_derived_from": [
+  "../slides/evidence/self_audit.json",
+  "../slides/evidence/demo_audit_12.json",
+  "../slides/evidence/demo_audit_4.json",
+  "../slides/evidence/repo_state.json"
+ ],
+ "integer_pixel_origins": "Every string sits at an integer pixel origin, which is what makes the ink reproducible by an independent renderer.",
+ "boxes": [
+  {
+   "name": "panel0",
+   "x0": 96,
+   "x1": 650,
+   "y0": 372,
+   "y1": 658
+  },
+  {
+   "name": "panel1",
+   "x0": 683,
+   "x1": 1237,
+   "y0": 372,
+   "y1": 658
+  },
+  {
+   "name": "panel2",
+   "x0": 1270,
+   "x1": 1824,
+   "y0": 372,
+   "y1": 658
+  },
+  {
+   "name": "absences",
+   "x0": 96,
+   "x1": 1824,
+   "y0": 710,
+   "y1": 906
+  }
+ ],
+ "layout_violations": [],
+ "layout_check": "every string is measured with the real font metrics; off-page, text-on-text, escaping its own panel and straddling another panel's edge all fail the build",
+ "placed": [
+  {
+   "label": "title",
+   "text": "Vacuity Auditor",
+   "x_px": 96,
+   "y_px": 186,
+   "size": 92,
+   "color": "#E9EEF3",
+   "weight": "bold",
+   "ha": "left",
+   "va": "baseline"
+  },
+  {
+   "label": "subtitle",
+   "text": "Can this check ever go red?",
+   "x_px": 96,
+   "y_px": 272,
+   "size": 42,
+   "color": "#6FC3C6",
+   "weight": "normal",
+   "ha": "left",
+   "va": "baseline"
+  },
+  {
+   "label": "framing",
+   "text": "It audits the check, not the code the check is pointed at.",
+   "x_px": 96,
+   "y_px": 328,
+   "size": 25,
+   "color": "#93A2B1",
+   "weight": "normal",
+   "ha": "left",
+   "va": "baseline"
+  },
+  {
+   "label": "panel0_head",
+   "text": "8 / 9   vs   2 / 9",
+   "x_px": 124,
+   "y_px": 456,
+   "size": 40,
+   "color": "#E9EEF3",
+   "weight": "bold",
+   "ha": "left",
+   "va": "baseline"
+  },
+  {
+   "label": "panel0_label_0",
+   "text": "mutants killed: a real suite vs a",
+   "x_px": 124,
+   "y_px": 506,
+   "size": 20,
+   "color": "#6FC3C6",
+   "weight": "normal",
+   "ha": "left",
+   "va": "baseline"
+  },
+  {
+   "label": "panel0_label_1",
+   "text": "vacuous one",
+   "x_px": 124,
+   "y_px": 534,
+   "size": 20,
+   "color": "#6FC3C6",
+   "weight": "normal",
+   "ha": "left",
+   "va": "baseline"
+  },
+  {
+   "label": "panel0_caption_0",
+   "text": "pytest calls both suites green.",
+   "x_px": 124,
+   "y_px": 574,
+   "size": 18,
+   "color": "#93A2B1",
+   "weight": "normal",
+   "ha": "left",
+   "va": "baseline"
+  },
+  {
+   "label": "panel1_head",
+   "text": "5 of 5  WEAK",
+   "x_px": 711,
+   "y_px": 456,
+   "size": 40,
+   "color": "#E9EEF3",
+   "weight": "bold",
+   "ha": "left",
+   "va": "baseline"
+  },
+  {
+   "label": "panel1_label_0",
+   "text": "this repository's own claims, 0",
+   "x_px": 711,
+   "y_px": 506,
+   "size": 20,
+   "color": "#6FC3C6",
+   "weight": "normal",
+   "ha": "left",
+   "va": "baseline"
+  },
+  {
+   "label": "panel1_label_1",
+   "text": "DISCRIMINATING",
+   "x_px": 711,
+   "y_px": 534,
+   "size": 20,
+   "color": "#6FC3C6",
+   "weight": "normal",
+   "ha": "left",
+   "va": "baseline"
+  },
+  {
+   "label": "panel1_caption_0",
+   "text": "worst: baseline_guard_reads_baseline",
+   "x_px": 711,
+   "y_px": 574,
+   "size": 18,
+   "color": "#93A2B1",
+   "weight": "normal",
+   "ha": "left",
+   "va": "baseline"
+  },
+  {
+   "label": "panel1_caption_1",
+   "text": "3 / 8.",
+   "x_px": 711,
+   "y_px": 600,
+   "size": 18,
+   "color": "#93A2B1",
+   "weight": "normal",
+   "ha": "left",
+   "va": "baseline"
+  },
+  {
+   "label": "panel2_head",
+   "text": "64 tests pass",
+   "x_px": 1298,
+   "y_px": 456,
+   "size": 40,
+   "color": "#E9EEF3",
+   "weight": "bold",
+   "ha": "left",
+   "va": "baseline"
+  },
+  {
+   "label": "panel2_label_0",
+   "text": "30 tracked files, 10 modules,",
+   "x_px": 1298,
+   "y_px": 506,
+   "size": 20,
+   "color": "#6FC3C6",
+   "weight": "normal",
+   "ha": "left",
+   "va": "baseline"
+  },
+  {
+   "label": "panel2_label_1",
+   "text": "anonymous clone",
+   "x_px": 1298,
+   "y_px": 534,
+   "size": 20,
+   "color": "#6FC3C6",
+   "weight": "normal",
+   "ha": "left",
+   "va": "baseline"
+  },
+  {
+   "label": "panel2_caption_0",
+   "text": "at 2259a4e8, MIT licensed, 1 commit",
+   "x_px": 1298,
+   "y_px": 574,
+   "size": 18,
+   "color": "#93A2B1",
+   "weight": "normal",
+   "ha": "left",
+   "va": "baseline"
+  },
+  {
+   "label": "panel2_caption_1",
+   "text": "author.",
+   "x_px": 1298,
+   "y_px": 600,
+   "size": 18,
+   "color": "#93A2B1",
+   "weight": "normal",
+   "ha": "left",
+   "va": "baseline"
+  },
+  {
+   "label": "absence_head",
+   "text": "What this entry does not have",
+   "x_px": 130,
+   "y_px": 754,
+   "size": 22,
+   "color": "#E2A24A",
+   "weight": "bold",
+   "ha": "left",
+   "va": "baseline"
+  },
+  {
+   "label": "no_bob_0",
+   "text": "Not built yet: IBM Bob 2.0 has not been used on this project. Access opens at kickoff and nothing here claims otherwise.",
+   "x_px": 130,
+   "y_px": 792,
+   "size": 19,
+   "color": "#E9EEF3",
+   "weight": "normal",
+   "ha": "left",
+   "va": "baseline"
+  },
+  {
+   "label": "no_discriminating_0",
+   "text": "Nothing in this repository's own audit is DISCRIMINATING: 5 of 5 claims are WEAK.",
+   "x_px": 130,
+   "y_px": 826,
+   "size": 19,
+   "color": "#E9EEF3",
+   "weight": "normal",
+   "ha": "left",
+   "va": "baseline"
+  },
+  {
+   "label": "no_demo_url_0",
+   "text": "No hosted demo URL and no video yet: both need accounts this entry does not hold.",
+   "x_px": 130,
+   "y_px": 860,
+   "size": 19,
+   "color": "#E9EEF3",
+   "weight": "normal",
+   "ha": "left",
+   "va": "baseline"
+  },
+  {
+   "label": "event",
+   "text": "IBM Bob 2.0 Hackathon | lablab.ai | 2026-09-25 to 2026-09-27",
+   "x_px": 96,
+   "y_px": 968,
+   "size": 20,
+   "color": "#93A2B1",
+   "weight": "normal",
+   "ha": "left",
+   "va": "baseline"
+  },
+  {
+   "label": "repo",
+   "text": "github.com/jianwang-ntu/ibm-bob-2-hackathon",
+   "x_px": 96,
+   "y_px": 1000,
+   "size": 20,
+   "color": "#93A2B1",
+   "weight": "normal",
+   "ha": "left",
+   "va": "baseline"
+  },
+  {
+   "label": "entrant",
+   "text": "Solo entry - Wang Jian - every line of code written by an autonomous AI coding agent",
+   "x_px": 96,
+   "y_px": 1038,
+   "size": 18,
+   "color": "#93A2B1",
+   "weight": "normal",
+   "ha": "left",
+   "va": "baseline"
+  }
+ ]
+}

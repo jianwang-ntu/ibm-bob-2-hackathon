@@ -171,11 +171,13 @@ a larger one.
   reports `DISCRIMINATING 4/4`; at `12` it reports `WEAK 8/9`. A small budget
   can therefore turn a gap into a clean bill of health. Treat `DISCRIMINATING`
   at a low budget as "no counterexample found yet", not as "none exists".
-- Of the four judging-criteria artifacts a lablab submission needs, only the
-  **slide deck** exists — `submission/slides/evidence/slides_presentation.pdf`,
-  generated from `evidence/*.json` and checked against its own shipped bytes.
-  **Cover image, demo video and demo URL do not exist in this repository.**
-  The video and the URL need hosting accounts this entry does not hold.
+- Of the four judging-criteria artifacts a lablab submission needs, the
+  **slide deck** and the **cover image** exist —
+  `submission/slides/evidence/slides_presentation.pdf` and
+  `submission/cover/evidence/cover_image.png`, both generated from
+  `evidence/*.json` and checked against their own shipped bytes.
+  **The demo video and the demo URL do not exist in this repository.**
+  Both need hosting accounts this entry does not hold.
 
 ## Prior art
 

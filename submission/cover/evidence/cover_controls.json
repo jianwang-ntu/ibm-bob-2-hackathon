@@ -1,0 +1,128 @@
+{
+ "schema": "cover_controls/v1",
+ "png_sha256": "19d68f662bc852398de98b84686f920392a1b128b2f42dd050fa84a305cdfa19",
+ "bars": {
+  "present_ncc": 0.9995,
+  "absent_ncc": 0.9,
+  "corruption_margin": 0.0
+ },
+ "ncc_scores": {
+  "no_bob_0": 0.999998,
+  "no_demo_url_0": 0.999998,
+  "no_discriminating_0": 0.999998,
+  "panel0_caption_0": 0.999996,
+  "panel0_head": 0.999999,
+  "panel0_label_0": 0.999997,
+  "panel0_label_1": 0.999996,
+  "panel1_caption_0": 0.999996,
+  "panel1_caption_1": 0.999995,
+  "panel1_head": 0.999999,
+  "panel1_label_0": 0.999997,
+  "panel1_label_1": 0.999997,
+  "panel2_caption_0": 0.999996,
+  "panel2_caption_1": 0.999995,
+  "panel2_head": 0.999999,
+  "panel2_label_0": 0.999997,
+  "panel2_label_1": 0.999997
+ },
+ "ncc_scores_corrupted": {
+  "no_bob": 0.995214,
+  "no_demo_url": 0.982292,
+  "no_discriminating": 0.993885,
+  "panel0_caption": 0.96481,
+  "panel0_head": 0.958581,
+  "panel0_label": 0.943719,
+  "panel1_caption": 0.971315,
+  "panel1_head": 0.965564,
+  "panel1_label": 0.956799,
+  "panel2_caption": 0.974532,
+  "panel2_head": 0.935409,
+  "panel2_label": 0.956232
+ },
+ "separation": "true lines rasterise identically and score 1.0; a one-character corruption of the longest line in each figure scores strictly below the PRESENT bar",
+ "passed": 16,
+ "total": 16,
+ "all_pass": true,
+ "controls": [
+  {
+   "control": "dependencies",
+   "pass": true,
+   "detail": "matplotlib, numpy and Pillow all import"
+  },
+  {
+   "control": "sidecar_sha256_matches_file",
+   "pass": true,
+   "detail": "19d68f662bc85239... 248,623 bytes"
+  },
+  {
+   "control": "format_is_png",
+   "pass": true,
+   "detail": "PIL reports PNG"
+  },
+  {
+   "control": "aspect_ratio_is_16_9_exactly",
+   "pass": true,
+   "detail": "1920x1080, 1920*9 == 1080*16 -> True"
+  },
+  {
+   "control": "sidecar_declares_every_figure",
+   "pass": true,
+   "detail": "12 figures, all present in placed[]"
+  },
+  {
+   "control": "declared_text_equals_evidence",
+   "pass": true,
+   "detail": "12 of 12 strings re-derived here match what the sidecar says was drawn"
+  },
+  {
+   "control": "every_figure_is_in_the_shipped_pixels",
+   "pass": true,
+   "detail": "17 rendered lines located, min NCC 1.0000 against a bar of 0.9995"
+  },
+  {
+   "control": "no_corruption_was_a_no_op",
+   "pass": true,
+   "detail": "12 corruptions all changed their string"
+  },
+  {
+   "control": "corrupted_figure_rejected_by_the_text_control",
+   "pass": true,
+   "detail": "every bumped figure disagrees with the sidecar"
+  },
+  {
+   "control": "corrupted_figure_rejected_by_the_pixel_control",
+   "pass": true,
+   "detail": "12 corrupted lines all score below 0.9995; worst 0.9952 against a true line at 1.0000"
+  },
+  {
+   "control": "matcher_reports_absent_strings_as_absent",
+   "pass": true,
+   "detail": "3 decoys all below 0.9"
+  },
+  {
+   "control": "absence_ledger_is_drawn_legibly",
+   "pass": true,
+   "detail": "3 ledger lines, all >= 16pt and inside the declared ledger block"
+  },
+  {
+   "control": "build_layout_check_found_nothing",
+   "pass": true,
+   "detail": "layout_violations = []"
+  },
+  {
+   "control": "layout_check_fires_on_a_broken_layout",
+   "pass": true,
+   "detail": "synthetic overlap and off-page both reported: ['off_page', 'text_on_text']"
+  },
+  {
+   "control": "rebuild_from_todays_evidence_is_byte_identical",
+   "pass": true,
+   "detail": "rc=0 sha256 19d68f662bc85239... == shipped"
+  },
+  {
+   "control": "cover_is_pinned_to_the_measured_repo_head",
+   "pass": true,
+   "detail": "2259a4e8 vs repo_state 2259a4e8"
+  }
+ ]
+}

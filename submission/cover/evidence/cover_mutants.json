@@ -1,0 +1,18 @@
+{
+ "schema": "cover_mutants/v1",
+ "baseline_asserted_green_first": true,
+ "killed": [
+  "hand_edited_png",
+  "sidecar_text_falsified",
+  "inflated_verdict_rebuilt",
+  "absence_line_cut",
+  "absence_ledger_shrunk_to_4pt",
+  "evidence_moved_under_the_cover",
+  "figure_painted_out_of_the_pixels",
+  "layout_check_disarmed",
+  "aspect_ratio_squashed"
+ ],
+ "survived": [],
+ "died_on_another_control": [],
+ "total": 9
+}
