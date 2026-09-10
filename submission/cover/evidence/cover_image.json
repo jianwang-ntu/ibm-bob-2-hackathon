@@ -1,8 +1,8 @@
 {
  "schema": "cover_image/v1",
  "png": "submission/cover/evidence/cover_image.png",
- "sha256": "19d68f662bc852398de98b84686f920392a1b128b2f42dd050fa84a305cdfa19",
- "bytes": 248623,
+ "sha256": "ceccd04ab8cdfb51df8fce966f21d3172cd5f7e99054c208922d272a9fca3dec",
+ "bytes": 248420,
  "width_px": 1920,
  "height_px": 1080,
  "aspect_ratio": "16:9",
@@ -279,7 +279,7 @@
   },
   {
    "label": "no_demo_url_0",
-   "text": "No hosted demo URL and no video yet: both need accounts this entry does not hold.",
+   "text": "No hosted demo URL: deploying one needs an account this entry does not hold.",
    "x_px": 130,
    "y_px": 860,
    "size": 19,

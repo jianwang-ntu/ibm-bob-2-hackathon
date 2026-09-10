@@ -350,8 +350,8 @@ def absence_strings(F):
          "No market study was conducted. The only demand evidence here is the "
          "base rate measured on this repository and its worked example."),
         ("no_demo_url",
-         "No hosted demo URL and no video yet: both need accounts this entry "
-         "does not hold."),
+         "No hosted demo URL: deploying one needs an account this entry does "
+         "not hold."),
     ]
 
 
@@ -843,8 +843,8 @@ def build(pdf_path=PDF, sidecar_path=SIDECAR):
             "are WEAK and none is DISCRIMINATING, that oracle sensitivity is "
             "unimplemented, that the tool is Python-only, that the verdict "
             "moves with the mutant budget, that there is no revenue, no "
-            "customer and no market study, and that no hosted demo URL or "
-            "video exists. It claims no measured market size and no measured "
+            "customer and no market study, and that no hosted demo URL "
+            "exists. It claims no measured market size and no measured "
             "saving."),
     }
     pathlib.Path(sidecar_path).write_text(

@@ -133,8 +133,8 @@ def absences(e: dict) -> dict:
         "no_discriminating": (f"Nothing in this repository's own audit is "
                               f"DISCRIMINATING: {s['summary']['weak']} of "
                               f"{s['summary']['total']} claims are WEAK."),
-        "no_demo_url": ("No hosted demo URL and no video yet: both need "
-                        "accounts this entry does not hold."),
+        "no_demo_url": ("No hosted demo URL: deploying one needs an account "
+                        "this entry does not hold."),
     }
 
 

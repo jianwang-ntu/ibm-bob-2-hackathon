@@ -1,6 +1,6 @@
 {
  "schema": "cover_controls/v1",
- "png_sha256": "19d68f662bc852398de98b84686f920392a1b128b2f42dd050fa84a305cdfa19",
+ "png_sha256": "ceccd04ab8cdfb51df8fce966f21d3172cd5f7e99054c208922d272a9fca3dec",
  "bars": {
   "present_ncc": 0.9995,
   "absent_ncc": 0.9,
@@ -27,7 +27,7 @@
  },
  "ncc_scores_corrupted": {
   "no_bob": 0.995214,
-  "no_demo_url": 0.982292,
+  "no_demo_url": 0.981414,
   "no_discriminating": 0.993885,
   "panel0_caption": 0.96481,
   "panel0_head": 0.958581,
@@ -52,7 +52,7 @@
   {
    "control": "sidecar_sha256_matches_file",
    "pass": true,
-   "detail": "19d68f662bc85239... 248,623 bytes"
+   "detail": "ceccd04ab8cdfb51... 248,420 bytes"
   },
   {
    "control": "format_is_png",
@@ -117,7 +117,7 @@
   {
    "control": "rebuild_from_todays_evidence_is_byte_identical",
    "pass": true,
-   "detail": "rc=0 sha256 19d68f662bc85239... == shipped"
+   "detail": "rc=0 sha256 ceccd04ab8cdfb51... == shipped"
   },
   {
    "control": "cover_is_pinned_to_the_measured_repo_head",

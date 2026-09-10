@@ -1,0 +1,8 @@
+5 static vacuity candidate(s) in /tmp/ibm-bob-2-hackathon/tests:
+  presence_only          tests/test_baseline.py:53  test_collected_count_distinguishes_absent_from_zero  -- asserts only that a value is (not) None
+  presence_only          tests/test_claims_and_report.py:36  test_loads_a_valid_spec  -- asserts only that a value is (not) None
+  presence_only          tests/test_claims_and_report.py:88  test_kill_rate_is_none_when_nothing_was_evidential  -- asserts only that a value is (not) None
+  no_assertion           tests/test_mutants.py:33  test_every_mutant_is_valid_python  -- test body contains no assertion of any kind
+  presence_only          tests/test_mutants.py:71  test_region_limiting_excludes_other_functions  -- asserts only that a name is truthy
+
+These locate; they do not decide. Point `audit` at them to get a verdict.

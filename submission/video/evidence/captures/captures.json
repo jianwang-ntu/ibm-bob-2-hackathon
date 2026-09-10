@@ -1,0 +1,46 @@
+{
+ "repo_tests": {
+  "cmd": "python3 -m pytest -q",
+  "cwd": ".",
+  "returncode": 0,
+  "seconds": 11.62,
+  "lines": 2,
+  "sha256": "cfc045b7658a5d28adbecbb59e581a7d47a31785c06222c56034f946f9d5f93d",
+  "capture_method": "stderr merged into stdout (subprocess.STDOUT), so the recorded order is the order a terminal shows"
+ },
+ "demo_pytest": {
+  "cmd": "python3 -m pytest tests -q",
+  "cwd": "examples/demo_project",
+  "returncode": 0,
+  "seconds": 0.86,
+  "lines": 2,
+  "sha256": "54d62a0149f447ee2867b9e102287fade45e0a057ff3b969489678c98884e9ae",
+  "capture_method": "stderr merged into stdout (subprocess.STDOUT), so the recorded order is the order a terminal shows"
+ },
+ "demo_audit": {
+  "cmd": "python3 -m vacuity_auditor audit --root . --spec vacuity.toml",
+  "cwd": "examples/demo_project",
+  "returncode": 3,
+  "seconds": 7.13,
+  "lines": 25,
+  "sha256": "dd441cfa5cace6bf0167780dd724f063a0be574571d9341b2c36cbfb88afe857",
+  "capture_method": "stderr merged into stdout (subprocess.STDOUT), so the recorded order is the order a terminal shows"
+ },
+ "self_scan": {
+  "cmd": "python3 -m vacuity_auditor scan --root .",
+  "cwd": ".",
+  "returncode": 1,
+  "seconds": 0.07,
+  "lines": 8,
+  "sha256": "99cdd4a7f1ed0e89d4914e00700cf0a37fa33b7f91206c5bea2a4835bcf72751",
+  "capture_method": "stderr merged into stdout (subprocess.STDOUT), so the recorded order is the order a terminal shows"
+ },
+ "_host": {
+  "cpu": "AMD EPYC 9654 96-Core Processor",
+  "python": "Python 3.13.9",
+  "repo_head": "aad0c84d683b7e926e240cf0ecf82b3378808202",
+  "clone": "credential-free git clone of https://github.com/jianwang-ntu/ibm-bob-2-hackathon.git into /tmp",
+  "captured_at_utc": "2026-09-10T16:05:26Z",
+  "order_note": "demo_audit runs its mutants across 4 workers and prints survivors in completion order, so a re-run reproduces the same survivor SET in a different ORDER. Measured over 3 runs 2026-09-10T16:03Z: identical sets, one survivor line at a different position."
+ }
+}

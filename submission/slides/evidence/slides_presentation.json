@@ -1,8 +1,8 @@
 {
  "schema": "slides_presentation/v1",
  "pdf": "submission/slides/evidence/slides_presentation.pdf",
- "sha256": "69cc0bfdb6c2f7fce4251070389cd6183aff39c07658abb7851b07957cf9206d",
- "bytes": 67682,
+ "sha256": "efeb937cb41101b836431a7ad6e464052e06900e1a16956470f638bec1a418ba",
+ "bytes": 67681,
  "pages": 13,
  "page_size_inches": [
   13.333,
@@ -23,7 +23,8 @@
   "demo_audit_12.json",
   "demo_audit_4.json",
   "repo_state.json",
-  "self_audit.json"
+  "self_audit.json",
+  "slides_controls.json"
  ],
  "claims": [
   {
@@ -90,7 +91,7 @@
   },
   {
    "label": "no_demo_url",
-   "text": "No hosted demo URL and no video yet: both need accounts this entry does not hold."
+   "text": "No hosted demo URL: deploying one needs an account this entry does not hold."
   }
  ],
  "text": [
@@ -847,7 +848,7 @@
   {
    "slide": 12,
    "role": "absence",
-   "text": "-  No hosted demo URL and no video yet: both need accounts this entry does not hold."
+   "text": "-  No hosted demo URL: deploying one needs an account this entry does not hold."
   },
   {
    "slide": 12,
@@ -940,5 +941,5 @@
   "authors": 1,
   "licence": "MIT"
  },
- "not_claimed": "The deck states that IBM Bob 2.0 has not been used, that 5 of 5 of the project's own claims are WEAK and none is DISCRIMINATING, that oracle sensitivity is unimplemented, that the tool is Python-only, that the verdict moves with the mutant budget, that there is no revenue, no customer and no market study, and that no hosted demo URL or video exists. It claims no measured market size and no measured saving."
+ "not_claimed": "The deck states that IBM Bob 2.0 has not been used, that 5 of 5 of the project's own claims are WEAK and none is DISCRIMINATING, that oracle sensitivity is unimplemented, that the tool is Python-only, that the verdict moves with the mutant budget, that there is no revenue, no customer and no market study, and that no hosted demo URL exists. It claims no measured market size and no measured saving."
 }

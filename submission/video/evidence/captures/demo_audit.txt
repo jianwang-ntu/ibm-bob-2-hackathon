@@ -1,0 +1,25 @@
+[real_suite_verifies_pricing] baseline: python -m pytest tests/test_pricing_real.py -q
+[real_suite_verifies_pricing] 9 mutants across 4 workers
+[vacuous_suite_verifies_pricing] baseline: python -m pytest tests/test_pricing_vacuous.py -q
+[vacuous_suite_verifies_pricing] 9 mutants across 4 workers
+
+CLAIM                           VERDICT         KILLED  DETAIL
+------------------------------------------------------------------------------------------
+real_suite_verifies_pricing     WEAK               8/9  8 of 9 mutants turned the check red, and 1 did not. The check is evidence, and it also accepts the wrong implementations listed below.
+                                  - survived: perturb_number@src/pricing.py:9 (0 -> 1) [exit 0]
+vacuous_suite_verifies_pricing  WEAK               2/9  2 of 9 mutants turned the check red, and 7 did not. The check is evidence, and it also accepts the wrong implementations listed below.
+                                  - survived: swap_boolop@src/pricing.py:9 (swap `Or`) [exit 0]
+                                  - survived: swap_arithmetic@src/pricing.py:12 (swap `Sub`) [exit 0]
+                                  - survived: swap_arithmetic@src/pricing.py:11 (swap `FloorDiv`) [exit 0]
+                                  - survived: perturb_number@src/pricing.py:11 (100 -> 101) [exit 0]
+                                  - survived: flip_comparison@src/pricing.py:13 (invert `Gt` comparison) [exit 0]
+                                  - survived: perturb_number@src/pricing.py:13 (0 -> 1) [exit 0]
+                                  - survived: perturb_number@src/pricing.py:9 (0 -> 1) [exit 0]
+
+static vacuity candidates (5) -- these locate, they do not decide:
+  no_assertion           tests/test_pricing_real.py:18  test_rejects_an_impossible_percentage  -- test body contains no assertion of any kind
+  presence_only          tests/test_pricing_vacuous.py:14  test_discount_returns_something  -- asserts only that a value is (not) None
+  presence_only          tests/test_pricing_vacuous.py:18  test_discount_returns_an_int  -- asserts only `isinstance(...)`, which holds for a wrong value too
+  self_comparison        tests/test_pricing_vacuous.py:22  test_discount_is_consistent  -- asserts `apply_discount(1000, 10) == apply_discount(1000, 10)`
+  swallowed_assertion    tests/test_pricing_vacuous.py:25  test_discount_does_not_explode  -- an assertion sits inside try/except that swallows the failure
+

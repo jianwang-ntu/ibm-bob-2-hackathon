@@ -160,8 +160,8 @@ def absences_from_evidence(e: dict) -> list[tuple[str, str]]:
          "No market study was conducted. The only demand evidence here is the "
          "base rate measured on this repository and its worked example."),
         ("no_demo_url",
-         "No hosted demo URL and no video yet: both need accounts this entry "
-         "does not hold."),
+         "No hosted demo URL: deploying one needs an account this entry does "
+         "not hold."),
     ]
 
 

@@ -1,0 +1,217 @@
+{
+ "baseline_green": true,
+ "groups": "bytes,replay,pixels,honesty",
+ "mutants": [
+  {
+   "mutant": "sha256_bumped",
+   "target": "accept_sidecar_sha256_matches_the_shipped_file",
+   "verdict": "KILLED",
+   "controls_that_went_red": [
+    "accept_sidecar_sha256_matches_the_shipped_file"
+   ],
+   "also_killed": []
+  },
+  {
+   "mutant": "has_audio_true",
+   "target": "accept_no_audio_stream_and_the_sidecar_says_silent",
+   "verdict": "KILLED",
+   "controls_that_went_red": [
+    "accept_no_audio_stream_and_the_sidecar_says_silent"
+   ],
+   "also_killed": []
+  },
+  {
+   "mutant": "capture_line_doctored",
+   "target": "accept_every_terminal_cue_joins_to_its_capture_byte_exactly",
+   "verdict": "KILLED",
+   "controls_that_went_red": [
+    "accept_every_terminal_cue_joins_to_its_capture_byte_exactly",
+    "reject_a_terminal_line_that_is_not_in_its_capture"
+   ],
+   "also_killed": [
+    "reject_a_terminal_line_that_is_not_in_its_capture"
+   ]
+  },
+  {
+   "mutant": "capture_file_emptied",
+   "target": "accept_every_named_capture_exists_and_is_not_empty",
+   "verdict": "KILLED",
+   "controls_that_went_red": [
+    "accept_every_named_capture_exists_and_is_not_empty",
+    "accept_every_terminal_cue_joins_to_its_capture_byte_exactly"
+   ],
+   "also_killed": [
+    "accept_every_terminal_cue_joins_to_its_capture_byte_exactly"
+   ]
+  },
+  {
+   "mutant": "cue_frame_shifted",
+   "target": "accept_every_declared_string_is_in_the_shipped_pixels",
+   "verdict": "KILLED",
+   "controls_that_went_red": [
+    "accept_every_declared_string_is_in_the_shipped_pixels"
+   ],
+   "also_killed": []
+  },
+  {
+   "mutant": "ledger_row_shrunk",
+   "target": "absence_ledger_is_drawn_legibly",
+   "verdict": "KILLED",
+   "controls_that_went_red": [
+    "absence_ledger_is_drawn_legibly",
+    "accept_every_declared_string_is_in_the_shipped_pixels"
+   ],
+   "also_killed": [
+    "accept_every_declared_string_is_in_the_shipped_pixels"
+   ]
+  },
+  {
+   "mutant": "ledger_item_dropped",
+   "target": "accept_the_videos_ledger_rejoins_the_decks_ledger_exactly",
+   "verdict": "KILLED",
+   "controls_that_went_red": [
+    "accept_the_videos_ledger_rejoins_the_decks_ledger_exactly",
+    "reject_the_retired_no_video_yet_claim_in_the_drawn_ledger"
+   ],
+   "also_killed": [
+    "reject_the_retired_no_video_yet_claim_in_the_drawn_ledger"
+   ]
+  },
+  {
+   "mutant": "bob_absence_removed",
+   "target": "accept_the_bob_absence_is_stated_and_located_in_the_pixels",
+   "verdict": "KILLED",
+   "controls_that_went_red": [
+    "accept_the_bob_absence_is_stated_and_located_in_the_pixels"
+   ],
+   "also_killed": []
+  },
+  {
+   "mutant": "bob_usage_claimed",
+   "target": "reject_a_claim_that_bob_2_0_was_used",
+   "verdict": "KILLED",
+   "controls_that_went_red": [
+    "reject_a_claim_that_bob_2_0_was_used"
+   ],
+   "also_killed": []
+  },
+  {
+   "mutant": "retired_claim_restored",
+   "target": "reject_the_retired_no_video_yet_claim_in_the_drawn_ledger",
+   "verdict": "KILLED",
+   "controls_that_went_red": [
+    "accept_the_videos_ledger_rejoins_the_decks_ledger_exactly",
+    "reject_the_retired_no_video_yet_claim_in_the_drawn_ledger"
+   ],
+   "also_killed": [
+    "accept_the_videos_ledger_rejoins_the_decks_ledger_exactly"
+   ]
+  },
+  {
+   "mutant": "container_remuxed",
+   "target": "accept_container_is_the_mandatory_mp4_h264",
+   "verdict": "KILLED",
+   "controls_that_went_red": [
+    "accept_container_is_the_mandatory_mp4_h264",
+    "accept_sidecar_sha256_matches_the_shipped_file"
+   ],
+   "also_killed": [
+    "accept_sidecar_sha256_matches_the_shipped_file"
+   ]
+  },
+  {
+   "mutant": "frame_squashed",
+   "target": "accept_frame_is_16_9_exactly",
+   "verdict": "KILLED",
+   "controls_that_went_red": [
+    "accept_every_declared_string_is_in_the_shipped_pixels",
+    "accept_frame_is_16_9_exactly",
+    "accept_sidecar_sha256_matches_the_shipped_file",
+    "accept_the_bob_absence_is_stated_and_located_in_the_pixels"
+   ],
+   "also_killed": [
+    "accept_every_declared_string_is_in_the_shipped_pixels",
+    "accept_sidecar_sha256_matches_the_shipped_file",
+    "accept_the_bob_absence_is_stated_and_located_in_the_pixels"
+   ]
+  },
+  {
+   "mutant": "duration_cut",
+   "target": "accept_duration_inside_the_published_window",
+   "verdict": "KILLED",
+   "controls_that_went_red": [
+    "accept_duration_inside_the_published_window",
+    "accept_sidecar_sha256_matches_the_shipped_file"
+   ],
+   "also_killed": [
+    "accept_sidecar_sha256_matches_the_shipped_file"
+   ]
+  }
+ ],
+ "killed_on_target": 13,
+ "total": 13,
+ "killed_by": {
+  "accept_sidecar_sha256_matches_the_shipped_file": [
+   "sha256_bumped",
+   "container_remuxed",
+   "frame_squashed",
+   "duration_cut"
+  ],
+  "accept_size_is_under_the_published_300mb_cap": [],
+  "accept_container_is_the_mandatory_mp4_h264": [
+   "container_remuxed"
+  ],
+  "accept_duration_inside_the_published_window": [
+   "duration_cut"
+  ],
+  "accept_frame_is_16_9_exactly": [
+   "frame_squashed"
+  ],
+  "accept_no_audio_stream_and_the_sidecar_says_silent": [
+   "has_audio_true"
+  ],
+  "accept_every_terminal_cue_joins_to_its_capture_byte_exactly": [
+   "capture_line_doctored",
+   "capture_file_emptied"
+  ],
+  "reject_a_terminal_line_that_is_not_in_its_capture": [
+   "capture_line_doctored"
+  ],
+  "accept_every_named_capture_exists_and_is_not_empty": [
+   "capture_file_emptied"
+  ],
+  "accept_every_declared_string_is_in_the_shipped_pixels": [
+   "cue_frame_shifted",
+   "ledger_row_shrunk",
+   "frame_squashed"
+  ],
+  "matcher_reports_absent_strings_as_absent": [],
+  "a_one_character_change_does_not_reach_the_present_bar": [],
+  "accept_the_videos_ledger_rejoins_the_decks_ledger_exactly": [
+   "ledger_item_dropped",
+   "retired_claim_restored"
+  ],
+  "absence_ledger_is_drawn_legibly": [
+   "ledger_row_shrunk"
+  ],
+  "accept_the_bob_absence_is_stated_and_located_in_the_pixels": [
+   "bob_absence_removed",
+   "frame_squashed"
+  ],
+  "reject_a_claim_that_bob_2_0_was_used": [
+   "bob_usage_claimed"
+  ],
+  "reject_the_retired_no_video_yet_claim_in_the_drawn_ledger": [
+   "ledger_item_dropped",
+   "retired_claim_restored"
+  ]
+ },
+ "not_mutated_and_why": {
+  "accept_size_is_under_the_published_300mb_cap": "falsifying it needs a >300 MB artifact; the shipped file is 3.0 MB and the cap is read off the real file every run",
+  "matcher_reports_absent_strings_as_absent": "this IS the refusal arm for the pixel control; it fires on three real decoys every run and reports their scores",
+  "a_one_character_change_does_not_reach_the_present_bar": "same -- it measures the separation on a live corruption every run",
+  "accept_captures_reproduce_in_a_fresh_clone": "in the `live` group, not run here",
+  "rebuild_from_todays_captures_reproduces_the_shipped_bytes": "in the `build` group, not run here"
+ },
+ "unfalsified": []
+}

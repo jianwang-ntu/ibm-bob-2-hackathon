@@ -67,4 +67,5 @@ cannot be quietly cut:
 
 - IBM Bob 2.0 has not been used on this project. Access opens at kickoff.
 - Nothing in this repository's own audit is `DISCRIMINATING`: 5 of 5 are `WEAK`.
-- There is no hosted demo URL and no video yet.
+- There is no hosted demo URL: deploying one needs an account this entry
+  does not hold.

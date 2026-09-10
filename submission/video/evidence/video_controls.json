@@ -1,0 +1,116 @@
+{
+ "controls": [
+  {
+   "control": "accept_sidecar_sha256_matches_the_shipped_file",
+   "pass": true,
+   "detail": "2,923,945 bytes, sha256 1830d3ad29f734f2..."
+  },
+  {
+   "control": "accept_size_is_under_the_published_300mb_cap",
+   "pass": true,
+   "detail": "2.79 MB against a 300 MB cap"
+  },
+  {
+   "control": "accept_container_is_the_mandatory_mp4_h264",
+   "pass": true,
+   "detail": "mov,mp4,m4a,3gp,3g2,mj2 / h264 -- the Rule Book says \"MP4 and PDF formats are mandatory\""
+  },
+  {
+   "control": "accept_duration_inside_the_published_window",
+   "pass": true,
+   "detail": "3:24.7 inside [3:00, 5:00) -- the Guidelines cap 5 min, Rule Book criterion 1 band 2 penalises under 3 min"
+  },
+  {
+   "control": "accept_frame_is_16_9_exactly",
+   "pass": true,
+   "detail": "1920x1080: 1920*9 == 1080*16"
+  },
+  {
+   "control": "accept_no_audio_stream_and_the_sidecar_says_silent",
+   "pass": true,
+   "detail": "0 audio streams; sidecar has_audio=False"
+  },
+  {
+   "control": "accept_every_terminal_cue_joins_to_its_capture_byte_exactly",
+   "pass": true,
+   "detail": "5 of 5 terminal cues found byte-exactly in 4 capture files"
+  },
+  {
+   "control": "reject_a_terminal_line_that_is_not_in_its_capture",
+   "pass": true,
+   "detail": "the real line of repo_tests joins; a one-character corruption of it does not (the corruption changed something: True)"
+  },
+  {
+   "control": "accept_every_named_capture_exists_and_is_not_empty",
+   "pass": true,
+   "detail": {
+    "demo_pytest": 2,
+    "repo_tests": 2,
+    "self_scan": 8,
+    "demo_audit": 25
+   }
+  },
+  {
+   "control": "accept_every_declared_string_is_in_the_shipped_pixels",
+   "pass": true,
+   "detail": "17 of 17 at or above 0.9995; worst true line 0.999572"
+  },
+  {
+   "control": "matcher_reports_absent_strings_as_absent",
+   "pass": true,
+   "detail": "3 decoys all below 0.9: [0.608061, 0.381759, 0.161801]"
+  },
+  {
+   "control": "a_one_character_change_does_not_reach_the_present_bar",
+   "pass": true,
+   "detail": "one changed character scores 0.608061 against PRESENT 0.9995"
+  },
+  {
+   "control": "accept_the_videos_ledger_rejoins_the_decks_ledger_exactly",
+   "pass": true,
+   "detail": "8 items rejoined against 8 in the deck; 0 differ"
+  },
+  {
+   "control": "absence_ledger_is_drawn_legibly",
+   "pass": true,
+   "detail": "9 ledger rows, all >= 20pt and inside the panel"
+  },
+  {
+   "control": "accept_the_bob_absence_is_stated_and_located_in_the_pixels",
+   "pass": true,
+   "detail": "'IBM Bob 2.0 has not been used on this project.' at 0.999794"
+  },
+  {
+   "control": "reject_a_claim_that_bob_2_0_was_used",
+   "pass": true,
+   "detail": "0 affirmative-usage hits across 51 cues; the scanner fires on the planted control"
+  },
+  {
+   "control": "reject_the_retired_no_video_yet_claim_in_the_drawn_ledger",
+   "pass": true,
+   "detail": "0 occurrences of the retired clause; the demo-URL absence it was split from is still drawn"
+  },
+  {
+   "control": "accept_captures_reproduce_in_a_fresh_clone",
+   "pass": true,
+   "detail": "4 of 4 reproduced (same rc, same line multiset): repo_tests(rc=0), demo_pytest(rc=0), demo_audit(rc=3,reordered), self_scan(rc=1); survivor order varies on ['demo_audit']"
+  },
+  {
+   "control": "rebuild_from_todays_captures_reproduces_the_shipped_bytes",
+   "pass": true,
+   "detail": "rc=0 byte-identical"
+  }
+ ],
+ "groups_run": [
+  "bytes",
+  "replay",
+  "pixels",
+  "honesty",
+  "live",
+  "build"
+ ],
+ "passed": 19,
+ "total": 19,
+ "present_bar": 0.9995,
+ "absent_bar": 0.9
+}
