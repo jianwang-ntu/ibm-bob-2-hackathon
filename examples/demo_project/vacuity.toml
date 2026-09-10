@@ -1,0 +1,13 @@
+# Two claims over the same module. One check reads it; one only looks like it does.
+
+[[claim]]
+id = "real_suite_verifies_pricing"
+check = "python -m pytest tests/test_pricing_real.py -q"
+verifies = "src/pricing.py"
+description = "the value-checking suite genuinely constrains apply_discount"
+
+[[claim]]
+id = "vacuous_suite_verifies_pricing"
+check = "python -m pytest tests/test_pricing_vacuous.py -q"
+verifies = "src/pricing.py"
+description = "the presence-checking suite claims the same thing and cannot fail"

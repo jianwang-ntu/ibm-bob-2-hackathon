@@ -1,0 +1,32 @@
+# The auditor audits itself. Each claim pairs one check with the module it says
+# it verifies; a check is only ever credited for mutants in its own region.
+
+[[claim]]
+id = "baseline_guard_reads_baseline"
+check = "python3 -m pytest tests/test_baseline.py -q"
+verifies = "vacuity_auditor/baseline.py"
+description = "the green-baseline tests constrain the guard that rejects exit 4/5 and INTERNALERROR"
+
+[[claim]]
+id = "static_scan_tests_read_static_scan"
+check = "python3 -m pytest tests/test_static_scan.py -q"
+verifies = "vacuity_auditor/static_scan.py"
+description = "the pattern tests, and their controls, constrain the scanner"
+
+[[claim]]
+id = "runner_tests_read_the_isolation_code"
+check = "python3 -m pytest tests/test_runner.py -q"
+verifies = "vacuity_auditor/runner.py"
+description = "the sandbox tests constrain isolated_copy and verify_isolation"
+
+[[claim]]
+id = "mutant_tests_read_the_operators"
+check = "python3 -m pytest tests/test_mutants.py -q"
+verifies = "vacuity_auditor/mutants.py"
+description = "the generator tests constrain the mutation operators and their exclusions"
+
+[[claim]]
+id = "report_tests_read_the_exit_codes"
+check = "python3 -m pytest tests/test_claims_and_report.py -q"
+verifies = "vacuity_auditor/report.py"
+description = "the report tests constrain verdict rendering and the exit-code precedence"
